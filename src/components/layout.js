@@ -2,10 +2,20 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+//Import MaterialUI components
+import {
+  createMuiTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@material-ui/core/styles"
+
+//Import custom components
 import Header from "./Header"
-// import "./layout.css"
-// import "../styles/projects.css"
 import Footer from "./Footer"
+import theme from "../styles/theme"
+
+let theming = createMuiTheme(theme)
+theming = responsiveFontSizes(theming)
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -20,17 +30,20 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
-      {/* <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      > */}
-      <main>{children}</main>
-      {/* </div> */}
-      <Footer />
+      <ThemeProvider theme={theming}>
+        <div
+          style={{
+            backgroundColor: "#333",
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+          }}
+        >
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </ThemeProvider>
     </>
   )
 }

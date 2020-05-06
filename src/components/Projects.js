@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import ContentCard from "./sub_components/Cards";
-import pageData from "./data/pageData";
-import ScrollReveal from "scrollreveal";
-import { Grid } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
+import React, { useEffect, useRef } from "react"
+import ContentCard from "./subcomponents/Cards"
+import pageData from "../config/index"
+import ScrollReveal from "scrollreveal"
+import { Grid } from "@material-ui/core"
+import Typography from "@material-ui/core/Typography"
 
 function Projects() {
-  const revealContainer = useRef(null);
+  const revealContainer = useRef(null)
 
   useEffect(() => {
     const slideUp = {
@@ -22,22 +22,22 @@ function Projects() {
       reset: false,
       useDelay: "always",
       // viewFactor: 1,
-      viewOffset: { top: 0, right: 0, bottom: 300, left: 0 }
-    };
-    return ScrollReveal().reveal(revealContainer.current, slideUp);
-  }, []);
+      viewOffset: { top: 0, right: 0, bottom: 300, left: 0 },
+    }
+    return ScrollReveal().reveal(revealContainer.current, slideUp)
+  }, [])
 
   //Code below to import dynamic images used for project
   function importAll(r) {
-    let images = {};
+    let images = {}
     r.keys().forEach((item, index) => {
-      images[item.replace("./", "")] = r(item);
-    });
-    return images;
+      images[item.replace("./", "")] = r(item)
+    })
+    return images
   }
   const imageGallery = importAll(
     require.context("./static/images", false, /\.(jpg?g|png)$/)
-  );
+  )
   //end of dynamic image import
 
   return (
@@ -51,7 +51,7 @@ function Projects() {
         alignItems="flex-start"
         justify="center"
         style={{
-          margin: "0px auto 100px"
+          margin: "0px auto 100px",
         }}
       >
         {pageData.project.map(
@@ -75,12 +75,12 @@ function Projects() {
                   desc={description}
                 />
               </Grid>
-            );
+            )
           }
         )}
       </Grid>
     </div>
-  );
+  )
 }
 
-export default Projects;
+export default Projects

@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import pageData from "./data/pageData";
-import "../styles/projects.css";
-import { CSSTransition } from "react-transition-group";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import { Button } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import React, { useState, useEffect } from "react"
+import pageData from "../config/index"
+import "../styles/projects.css"
+import { CSSTransition } from "react-transition-group"
+import Typography from "@material-ui/core/Typography"
+import Grid from "@material-ui/core/Grid"
+import { Button } from "@material-ui/core"
+import { useTheme } from "@material-ui/core/styles"
 
 function HeroUnit() {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 3000);
-    return () => clearTimeout(timeout);
-  }, []);
+    const timeout = setTimeout(() => setIsMounted(true), 3000)
+    return () => clearTimeout(timeout)
+  }, [])
 
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <React.Fragment>
@@ -24,7 +24,7 @@ function HeroUnit() {
         direction="column"
         justify="center"
         style={{
-          minHeight: "100vh"
+          minHeight: "100vh",
         }}
       >
         <CSSTransition
@@ -35,7 +35,7 @@ function HeroUnit() {
             enter: "fadeup-enter",
             enterActive: "fadeup-enter-active",
             exit: "",
-            exitActive: ""
+            exitActive: "",
           }}
         >
           <Typography
@@ -43,7 +43,7 @@ function HeroUnit() {
             style={{
               transitionDelay: "200ms",
               color: theme.palette.primary.contrastText,
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
           >
             {pageData.hero.title}
@@ -61,7 +61,7 @@ function HeroUnit() {
             color="secondary"
             style={{
               transitionDelay: "300ms",
-              marginBottom: "10px"
+              marginBottom: "10px",
             }}
           >
             {pageData.hero.name}
@@ -79,7 +79,7 @@ function HeroUnit() {
             style={{
               color: theme.palette.primary.contrastText,
               transitionDelay: "400ms",
-              marginTop: "25px"
+              marginTop: "25px",
             }}
           >
             {pageData.hero.description}
@@ -101,7 +101,7 @@ function HeroUnit() {
               <div
                 style={{
                   transitionDelay: "600ms",
-                  marginTop: "30px"
+                  marginTop: "30px",
                 }}
               >
                 {/* div element necessary to apply transition since Button component
@@ -121,7 +121,7 @@ function HeroUnit() {
         </Grid>
       </Grid>
     </React.Fragment>
-  );
+  )
 }
 
-export default HeroUnit;
+export default HeroUnit
