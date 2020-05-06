@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import ContentCard from "./subcomponents/Cards"
 import pageData from "../config/index"
-import ScrollReveal from "scrollreveal"
+// import ScrollReveal from "scrollreveal"
 import { Grid } from "@material-ui/core"
 import Typography from "@material-ui/core/Typography"
 
@@ -24,7 +24,7 @@ function Projects() {
       // viewFactor: 1,
       viewOffset: { top: 0, right: 0, bottom: 300, left: 0 },
     }
-    return ScrollReveal().reveal(revealContainer.current, slideUp)
+    // return ScrollReveal().reveal(revealContainer.current, slideUp)
   }, [])
 
   //Code below to import dynamic images used for project

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import ScrollReveal from "scrollreveal";
-import Typography from "@material-ui/core/Typography";
-import { useTheme } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import React, { useEffect, useRef } from "react"
+// import ScrollReveal from "scrollreveal";
+import Typography from "@material-ui/core/Typography"
+import { useTheme } from "@material-ui/core/styles"
+import Button from "@material-ui/core/Button"
 
 function Contact() {
-  const revealContainer = useRef(null);
+  const revealContainer = useRef(null)
   useEffect(() => {
     const slideUp = {
       distance: "30px",
@@ -20,20 +20,20 @@ function Contact() {
       reset: false,
       useDelay: "always",
       // viewFactor: 1,
-      viewOffset: { top: 0, right: 0, bottom: 0, left: 0 }
-    };
-    ScrollReveal().reveal(revealContainer.current, slideUp);
-  }, []);
+      viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
+    }
+    // ScrollReveal().reveal(revealContainer.current, slideUp);
+  }, [])
 
-  const theme = useTheme();
-  const color = theme.palette.primary.contrastText;
+  const theme = useTheme()
+  const color = theme.palette.primary.contrastText
   return (
     <div
       id="contact"
       style={{
         backgroundColor: "inherit",
         textAlign: "center",
-        marginBottom: "100px"
+        marginBottom: "100px",
       }}
       ref={revealContainer}
     >
@@ -58,7 +58,7 @@ function Contact() {
         Say Hello
       </Button>
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

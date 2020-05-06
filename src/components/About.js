@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import ScrollReveal from "scrollreveal";
-import Typography from "@material-ui/core/Typography";
+import React, { useEffect, useRef } from "react"
+// import ScrollReveal from "scrollreveal";
+import Typography from "@material-ui/core/Typography"
 
 function About() {
-  const revealContainer = useRef(null);
+  const revealContainer = useRef(null)
   useEffect(() => {
     const slideUp = {
       distance: "20px",
@@ -18,10 +18,10 @@ function About() {
       reset: false,
       useDelay: "always",
       // viewFactor: 1,
-      viewOffset: { top: 0, right: 0, bottom: 250, left: 0 }
-    };
-    ScrollReveal().reveal(revealContainer.current, slideUp);
-  }, []);
+      viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },
+    }
+    // ScrollReveal().reveal(revealContainer.current, slideUp);
+  }, [])
 
   return (
     <div
@@ -30,7 +30,7 @@ function About() {
         backgroundColor: "inherit",
         textAlign: "center",
         marginBottom: "100px",
-        paddingTop: "70px"
+        paddingTop: "70px",
       }}
       ref={revealContainer}
     >
@@ -55,7 +55,7 @@ function About() {
         Express.
       </Typography>
     </div>
-  );
+  )
 }
 
-export default About;
+export default About
