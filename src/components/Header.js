@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 //Import MaterialUI Components
 import makeStyles from "@material-ui/core/styles/makeStyles"
@@ -7,6 +7,10 @@ import ToolBar from "@material-ui/core/Toolbar"
 import IconButton from "@material-ui/core/IconButton"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
+import { CSSTransition } from "react-transition-group"
+
+//Import custom components
+import Drawer from "./subcomponents/Drawer"
 
 const useStyles = makeStyles(theme => ({
   sectionDesktop: {
@@ -49,127 +53,133 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function Header() {
+const Header = () => {
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 1000)
+    return () => clearTimeout(timeout)
+  }, [])
+
   const [isAlive, setIsAlive] = useState(false)
 
   const classes = useStyles()
 
   return (
     <React.Fragment>
-      {/* <CSSTransition
+      <CSSTransition
         in={isMounted}
         timeout={1000}
         mountOnEnter
         classNames="fadedown"
         onEntered={() => setIsAlive(true)}
-      > */}
-      <div>
-        <AppBar position="fixed">
-          <ToolBar className={classes.toolbarContainer}>
-            <div>
-              {/* <CSSTransition
+      >
+        <div>
+          <AppBar position="fixed">
+            <ToolBar className={classes.toolbarContainer}>
+              <div>
+                <CSSTransition
                   in={isAlive}
                   timeout={1500}
                   mountOnEnter
                   classNames="fadedown"
-                > */}
-              <span
-                style={{
-                  display: "block",
-                  transitionDelay: "500ms",
-                }}
-              >
-                <Button color="inherit" href="/" aria-label="Home Page">
-                  <Typography>LC</Typography>
-                </Button>
-              </span>
-              {/* </CSSTransition> */}
-            </div>
+                >
+                  <span
+                    style={{
+                      display: "block",
+                      transitionDelay: "500ms",
+                    }}
+                  >
+                    <Button color="inherit" href="/" aria-label="Home Page">
+                      <Typography>LC</Typography>
+                    </Button>
+                  </span>
+                </CSSTransition>
+              </div>
 
-            <div className={classes.sectionDesktop}>
-              {/* <CSSTransition
+              <div className={classes.sectionDesktop}>
+                <CSSTransition
                   in={isAlive}
                   timeout={1700}
                   mountOnEnter
                   classNames="fadedown"
-                > */}
-              <span
-                style={{
-                  transitionDelay: "700ms",
-                }}
-              >
-                <IconButton
-                  aria-label="Show Projects section"
-                  color="inherit"
-                  href="#projects"
                 >
-                  <Typography>1. Projects</Typography>
-                </IconButton>
-              </span>
-              {/* </CSSTransition> */}
+                  <span
+                    style={{
+                      transitionDelay: "700ms",
+                    }}
+                  >
+                    <IconButton
+                      aria-label="Show Projects section"
+                      color="inherit"
+                      href="#projects"
+                    >
+                      <Typography>1. Projects</Typography>
+                    </IconButton>
+                  </span>
+                </CSSTransition>
 
-              {/* <CSSTransition
+                <CSSTransition
                   in={isAlive}
                   timeout={1800}
                   mountOnEnter
                   classNames="fadedown"
-                > */}
-              <span
-                style={{
-                  transitionDelay: "800ms",
-                }}
-              >
-                <IconButton
-                  aria-label="Show About section"
-                  color="inherit"
-                  href="#about"
                 >
-                  <Typography>2. About</Typography>
-                </IconButton>
-              </span>
-              {/* </CSSTransition> */}
+                  <span
+                    style={{
+                      transitionDelay: "800ms",
+                    }}
+                  >
+                    <IconButton
+                      aria-label="Show About section"
+                      color="inherit"
+                      href="#about"
+                    >
+                      <Typography>2. About</Typography>
+                    </IconButton>
+                  </span>
+                </CSSTransition>
 
-              {/* <CSSTransition
+                <CSSTransition
                   in={isAlive}
                   timeout={1900}
                   mountOnEnter
                   classNames="fadedown"
-                > */}
-              <span
-                style={{
-                  transitionDelay: "900ms",
-                }}
-              >
-                <IconButton
-                  aria-label="Show Contact section"
-                  color="inherit"
-                  href="#contact"
                 >
-                  <Typography>3. Contact</Typography>
-                </IconButton>
-              </span>
-              {/* </CSSTransition> */}
-            </div>
-            <div className={classes.sectionMobile}>
-              {/* <CSSTransition
+                  <span
+                    style={{
+                      transitionDelay: "900ms",
+                    }}
+                  >
+                    <IconButton
+                      aria-label="Show Contact section"
+                      color="inherit"
+                      href="#contact"
+                    >
+                      <Typography>3. Contact</Typography>
+                    </IconButton>
+                  </span>
+                </CSSTransition>
+              </div>
+              <div className={classes.sectionMobile}>
+                <CSSTransition
                   in={isAlive}
                   timeout={1700}
                   mountOnEnter
                   classNames="fadedown"
-                > */}
-              <span
-                style={{
-                  transitionDelay: "700ms",
-                }}
-              >
-                {/* <Drawer /> */}
-              </span>
-              {/* </CSSTransition> */}
-            </div>
-          </ToolBar>
-        </AppBar>
-      </div>
-      {/* </CSSTransition> */}
+                >
+                  <span
+                    style={{
+                      transitionDelay: "700ms",
+                    }}
+                  >
+                    <Drawer />
+                  </span>
+                </CSSTransition>
+              </div>
+            </ToolBar>
+          </AppBar>
+        </div>
+      </CSSTransition>
     </React.Fragment>
   )
 }

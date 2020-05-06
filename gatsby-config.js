@@ -1,8 +1,10 @@
+const config = require("./src/config")
+
 module.exports = {
   siteMetadata: {
-    title: `Luis Work Portfolio`,
-    description: `Luis Cristo is a Full Stack Web Developer ready to provide innovative, professional and high quality solutions to your business needs.`,
-    author: `@LuiscCristo`,
+    title: config.siteTitle,
+    description: config.siteDescription,
+    author: config.name,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
