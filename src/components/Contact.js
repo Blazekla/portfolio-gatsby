@@ -4,6 +4,9 @@ import Typography from "@material-ui/core/Typography"
 import { useTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 
+//Import custom components
+import sr from "../utils/sr"
+
 function Contact() {
   const revealContainer = useRef(null)
   useEffect(() => {
@@ -22,7 +25,7 @@ function Contact() {
       // viewFactor: 1,
       viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
     }
-    // ScrollReveal().reveal(revealContainer.current, slideUp);
+    sr.reveal(revealContainer.current, slideUp)
   }, [])
 
   const theme = useTheme()
