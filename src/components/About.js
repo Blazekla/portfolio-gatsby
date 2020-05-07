@@ -33,13 +33,14 @@ function About() {
         textAlign: "center",
         marginBottom: "100px",
         paddingTop: "70px",
+        minHeight: "400px",
       }}
       ref={revealContainer}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         color="secondary"
-        style={{ marginBottom: "20px" }}
+        style={{ marginBottom: "50px" }}
       >
         About Me
       </Typography>

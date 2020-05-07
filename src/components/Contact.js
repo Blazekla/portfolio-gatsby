@@ -36,13 +36,15 @@ function Contact() {
         backgroundColor: "inherit",
         textAlign: "center",
         marginBottom: "100px",
+        paddingTop: "70px",
+        minHeight: "400px",
       }}
       ref={revealContainer}
     >
       <Typography
-        style={{ marginBottom: "10px" }}
+        style={{ marginBottom: "50px" }}
         color="secondary"
-        variant="h4"
+        variant="h3"
       >
         Contact
       </Typography>

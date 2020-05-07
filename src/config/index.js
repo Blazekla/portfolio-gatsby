@@ -22,10 +22,10 @@ module.exports = {
       name: "Linkedin",
       url: "https://www.linkedin.com/in/luiscristo1/",
     },
-    {
-      name: "Codepen",
-      url: "https://codepen.io/",
-    },
+    // {
+    //   name: "Codepen",
+    //   url: "https://codepen.io/",
+    // },
     // {
     //   name: "Instagram",
     //   url: "https://www.instagram.com/",
@@ -38,16 +38,16 @@ module.exports = {
 
   navLinks: [
     {
+      name: "Projects",
+      url: "/#projects",
+    },
+    {
       name: "About",
       url: "/#about",
     },
     {
       name: "Experience",
       url: "/#jobs",
-    },
-    {
-      name: "Work",
-      url: "/#projects",
     },
     {
       name: "Contact",
@@ -66,7 +66,8 @@ module.exports = {
       github: "https://github.com/Blazekla/MERN-Shopping-List",
       external: "https://mern-shopping-list-2020.herokuapp.com/",
       tech: "",
-      src: "MERN-project.jpg",
+      // src: "MERN-project.jpg",
+      src: "MERN",
       alt: "Picture of the MERN project showcasing the list",
       description: "#",
     },
@@ -75,7 +76,8 @@ module.exports = {
       github: "https://github.com/Blazekla/pinterest-project",
       external: "https://pinterestproject.netlify.com",
       tech: "",
-      src: "Pinterest-project.jpg",
+      // src: "Pinterest-project.jpg",
+      src: "Pinterest",
       alt: "Picture of the Pinterest front page",
       description: "#",
     },
@@ -84,7 +86,8 @@ module.exports = {
       github: "https://github.com/Blazekla/portfolio",
       external: "/",
       tech: "",
-      src: "homepage.png",
+      // src: "homepage.png",
+      src: "homepage",
       alt: "Picture of the Portfolio page",
       description: "#",
     },

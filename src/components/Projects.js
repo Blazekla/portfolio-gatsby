@@ -1,10 +1,15 @@
 import React, { useEffect, useRef } from "react"
-import ContentCard from "./subcomponents/Cards"
-import pageData from "../config/index"
+
+//Material UI
 import { Grid } from "@material-ui/core"
 import Typography from "@material-ui/core/Typography"
 
+//Gatsby
+import { useStaticQuery, graphql } from "gatsby"
+
 //Import custom components
+import ContentCard from "./subcomponents/Cards"
+import pageData from "../config/index"
 import sr from "../utils/sr"
 
 function Projects() {
@@ -42,9 +47,43 @@ function Projects() {
   )
   //end of dynamic image import
 
+  //Gatsby Image query//
+  const data = useStaticQuery(graphql`
+    query {
+      homepage: file(relativePath: { eq: "homepage.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      MERN: file(relativePath: { eq: "MERN-project.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      Pinterest: file(relativePath: { eq: "Pinterest-project.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  //End of query//
+
   return (
     <div ref={revealContainer}>
-      <Typography align="center" variant="h4" color="secondary">
+      <Typography
+        align="center"
+        variant="h3"
+        color="secondary"
+        style={{ marginBottom: "50px" }}
+      >
         Projects
       </Typography>
       <Grid
@@ -67,12 +106,14 @@ function Projects() {
                 md={6}
                 style={{ padding: "16px" }}
               >
+                {console.log(src)}
                 <ContentCard
                   title={title}
                   code={github}
                   external={external}
                   technology={tech}
-                  imageSource={imageGallery[src]}
+                  // imageSource={imageGallery[src]}
+                  imageSource={data[src].childImageSharp.fluid}
                   alt={alt}
                   desc={description}
                 />

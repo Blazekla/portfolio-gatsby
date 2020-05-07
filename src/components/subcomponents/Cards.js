@@ -5,11 +5,14 @@ import {
   CardActionArea,
   CardContent,
   CardActions,
-  CardMedia,
+  // CardMedia,
   Button,
   Typography,
 } from "@material-ui/core"
 import Link from "@material-ui/core/Link"
+
+//Gatsby
+import Img from "gatsby-image"
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -36,12 +39,14 @@ function ContentCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea disableRipple={true}>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           alt={props.alt}
           image={props.imageSource}
           title={props.title}
-        />
+        /> */}
+
+        <Img fluid={props.imageSource} />
       </CardActionArea>
       <CardContent className={classes.cardContent}>
         <Typography color="secondary">{props.title}</Typography>
