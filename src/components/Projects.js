@@ -28,24 +28,10 @@ function Projects() {
       mobile: true,
       reset: false,
       useDelay: "always",
-      // viewFactor: 1,
       viewOffset: { top: 0, right: 0, bottom: 300, left: 0 },
     }
     return sr.reveal(revealContainer.current, slideUp)
   }, [])
-
-  //Code below to import dynamic images used for project
-  function importAll(r) {
-    let images = {}
-    r.keys().forEach((item, index) => {
-      images[item.replace("./", "")] = r(item)
-    })
-    return images
-  }
-  const imageGallery = importAll(
-    require.context("./static/images", false, /\.(jpg?g|png)$/)
-  )
-  //end of dynamic image import
 
   //Gatsby Image query//
   const data = useStaticQuery(graphql`
@@ -73,7 +59,6 @@ function Projects() {
       }
     }
   `)
-
   //End of query//
 
   return (
@@ -106,13 +91,11 @@ function Projects() {
                 md={6}
                 style={{ padding: "16px" }}
               >
-                {console.log(src)}
                 <ContentCard
                   title={title}
                   code={github}
                   external={external}
                   technology={tech}
-                  // imageSource={imageGallery[src]}
                   imageSource={data[src].childImageSharp.fluid}
                   alt={alt}
                   desc={description}
