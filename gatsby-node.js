@@ -5,7 +5,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /bad-module/,
+            test: /scrollreveal/,
             use: loaders.null(),
           },
         ],

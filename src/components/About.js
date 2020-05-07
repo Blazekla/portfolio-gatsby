@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react"
 import Typography from "@material-ui/core/Typography"
 
 //Import custom components
-import sr from "../utils/sr"
+// import sr from "../utils/sr"
 
 function About() {
   const revealContainer = useRef(null)
@@ -23,7 +23,7 @@ function About() {
       // viewFactor: 1,
       viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },
     }
-    sr.reveal(revealContainer.current, slideUp)
+    // sr.reveal(revealContainer.current, slideUp)
   }, [])
 
   return (

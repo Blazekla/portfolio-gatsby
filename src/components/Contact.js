@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-// import ScrollReveal from "scrollreveal";
+// import ScrollReveal from "scrollreveal"
 import Typography from "@material-ui/core/Typography"
 import { useTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
@@ -25,7 +25,7 @@ function Contact() {
       // viewFactor: 1,
       viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
     }
-    sr.reveal(revealContainer.current, slideUp)
+    return sr.reveal(revealContainer.current, slideUp)
   }, [])
 
   const theme = useTheme()
