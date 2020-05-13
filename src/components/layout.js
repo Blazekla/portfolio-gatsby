@@ -8,6 +8,8 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from "@material-ui/core/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import Container from "@material-ui/core/Container"
 
 //Import custom components
 import Header from "./Header"
@@ -30,6 +32,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <CssBaseline />
       <ThemeProvider theme={theming}>
         <div
           style={{
@@ -40,7 +43,13 @@ const Layout = ({ children }) => {
           }}
         >
           <Header />
-          <main>{children}</main>
+          <Container
+            maxWidth="md"
+            className="mainContent"
+            style={{ minHeight: "100vh" }}
+          >
+            <main>{children}</main>
+          </Container>
           <Footer />
         </div>
       </ThemeProvider>
