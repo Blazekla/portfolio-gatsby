@@ -8,8 +8,19 @@ import "../styles/projects.css"
 //Import MaterialUI Components
 import Grid from "@material-ui/core/Grid"
 import Button from "@material-ui/core/Button"
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    transition: "all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)",
+    "&:hover": {
+      transform: "translateY(-3px)",
+    },
+  },
+}))
 
 const NotFoundPage = () => {
+  const classes = useStyles()
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -48,8 +59,14 @@ const NotFoundPage = () => {
             <p>You just hit a route that doesn&#39;t exist.</p>
           </Grid>
           <Grid item>
-            <Button component={Link} to="/" variant="contained" color="primary">
-              Home
+            <Button
+              component={Link}
+              to="/"
+              variant="contained"
+              color="primary"
+              className={classes.button}
+            >
+              Go Home
             </Button>
           </Grid>
         </Grid>

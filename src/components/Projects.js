@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography"
 import { useStaticQuery, graphql } from "gatsby"
 
 //Import custom components
-import ContentCard from "./subcomponents/Cards"
+import ContentCard from "./subcomponents/Card"
 import pageData from "../config/index"
 import sr from "../utils/sr"
 

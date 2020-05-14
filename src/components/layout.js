@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
 
-//Import MaterialUI components
+// Import MaterialUI components
 import {
   createMuiTheme,
   ThemeProvider,
@@ -32,8 +32,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <CssBaseline />
       <ThemeProvider theme={theming}>
+        <CssBaseline />
         <div
           style={{
             backgroundColor: "#333",

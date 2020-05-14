@@ -39,14 +39,7 @@ function ContentCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea disableRipple={true}>
-        {/* <CardMedia
-          component="img"
-          alt={props.alt}
-          image={props.imageSource}
-          title={props.title}
-        /> */}
-
-        <Img fluid={props.imageSource} />
+        <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
       </CardActionArea>
       <CardContent className={classes.cardContent}>
         <Typography color="secondary">{props.title}</Typography>

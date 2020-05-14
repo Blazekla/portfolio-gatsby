@@ -4,11 +4,10 @@ const theme = {
     secondary: { main: "#64ffda", contrastText: "#000000" },
     background: {
       paper: "#546686",
-      // default: "#020c1b"
       default: "#333",
     },
     text: {
-      primary: "#ccd6f6",
+      primary: "#ffffff",
       secondary: "#64ffda",
     },
     // action: {
