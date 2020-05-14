@@ -1,41 +1,12 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import Typography from "@material-ui/core/Typography"
 
 //Import custom components
-import sr from "../utils/sr"
+import ReusableContainer from "./ReusableSection"
 
 function About() {
-  const revealContainer = useRef(null)
-  useEffect(() => {
-    const slideUp = {
-      distance: "20px",
-      origin: "bottom",
-      duration: 1000,
-      delay: 200,
-      rotate: { x: 0, y: 0, z: 0 },
-      opacity: 0,
-      scale: 1,
-      easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
-      mobile: true,
-      reset: false,
-      useDelay: "always",
-      viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },
-    }
-    return sr.reveal(revealContainer.current, slideUp)
-  }, [])
-
   return (
-    <div
-      id="about"
-      style={{
-        backgroundColor: "inherit",
-        textAlign: "center",
-        marginBottom: "100px",
-        paddingTop: "70px",
-        minHeight: "400px",
-      }}
-      ref={revealContainer}
-    >
+    <ReusableContainer id="about">
       <Typography
         variant="h3"
         color="secondary"
@@ -56,7 +27,7 @@ function About() {
         React, ES6+, HTML, CSS, Material-UI, Redux, Axios, Netlify, Node.js,
         Express.
       </Typography>
-    </div>
+    </ReusableContainer>
   )
 }
 

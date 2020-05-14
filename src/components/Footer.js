@@ -1,9 +1,9 @@
 import React from "react"
 
 //Import MaterialUI Components
-import { Typography, Link } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-import { useTheme } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
+import Link from "@material-ui/core/Link"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 
 function Copyright() {
   const theme = useTheme()

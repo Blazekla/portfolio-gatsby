@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react"
-import pageData from "../config/index"
-import "../styles/projects.css"
 import { CSSTransition } from "react-transition-group"
+
+//Import MaterialUI Components
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
 import Button from "@material-ui/core/Button"
 import { useTheme } from "@material-ui/core/styles"
+
+//Import custom components
+import pageData from "../config/index"
+import "../styles/projects.css"
 
 function HeroUnit() {
   const [isMounted, setIsMounted] = useState(false)

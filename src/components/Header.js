@@ -111,7 +111,7 @@ const Header = () => {
                     <IconButton
                       aria-label="Show Projects section"
                       color="inherit"
-                      href="#projects"
+                      href="/#projects"
                     >
                       <Typography>1. Projects</Typography>
                     </IconButton>
@@ -132,7 +132,7 @@ const Header = () => {
                     <IconButton
                       aria-label="Show About section"
                       color="inherit"
-                      href="#about"
+                      href="/#about"
                     >
                       <Typography>2. About</Typography>
                     </IconButton>
@@ -153,7 +153,7 @@ const Header = () => {
                     <IconButton
                       aria-label="Show Contact section"
                       color="inherit"
-                      href="#contact"
+                      href="/#contact"
                     >
                       <Typography>3. Contact</Typography>
                     </IconButton>
