@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "inherit",
     textAlign: "center",
     marginBottom: "100px",
-    paddingTop: "70px",
+    paddingTop: "5.5rem",
     minHeight: "400px",
   },
 }))

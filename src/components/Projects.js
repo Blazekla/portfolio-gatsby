@@ -14,12 +14,6 @@ import ContentCard from "./subcomponents/Card"
 import ReusableContainer from "./ReusableSection"
 import pageData from "../config/index"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    paddingTop: "70px",
-  },
-}))
-
 function Projects() {
   //Gatsby Image query//
   const data = useStaticQuery(graphql`
