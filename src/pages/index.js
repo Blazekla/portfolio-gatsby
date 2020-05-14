@@ -15,7 +15,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
-    {/* <HeroBanner /> */}
+    <HeroBanner />
     <Container id="projects" maxWidth="md" style={{ paddingTop: "70px" }}>
       <Projects />
     </Container>

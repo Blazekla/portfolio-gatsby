@@ -4,7 +4,7 @@ import "../styles/projects.css"
 import { CSSTransition } from "react-transition-group"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
-import { Button } from "@material-ui/core"
+import Button from "@material-ui/core/Button"
 import { useTheme } from "@material-ui/core/styles"
 
 function HeroUnit() {

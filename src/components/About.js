@@ -44,7 +44,7 @@ function About() {
       >
         About Me
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph color="inherit">
         Ever since I came across computers as a kid, I've been mesmerized by
         their potential. I've always found myself taking opportunites to learn
         more about computers by tinkering and building with them. I have decided
