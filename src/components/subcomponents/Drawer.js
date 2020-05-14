@@ -1,5 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
+import { Link } from "gatsby"
 import Drawer from "@material-ui/core/Drawer"
 import Button from "@material-ui/core/Button"
 import List from "@material-ui/core/List"
@@ -70,9 +71,12 @@ export default function SideDrawer() {
         <ListItem
           classes={{ root: classes.listItem }}
           button
-          component="a"
+          // component="a"
+
+          component={Link}
+          to="/#projects"
           aria-label="Show Projects Section"
-          href="#projects"
+          // href="#projects"
         >
           <ListItemIcon classes={{ root: classes.icon }}>
             <WorkIcon color="secondary" />
@@ -83,7 +87,7 @@ export default function SideDrawer() {
           classes={{ root: classes.listItem }}
           button
           component="a"
-          href="#about"
+          href="/#about"
           aria-label="Show About Section"
           color="secondary"
         >
@@ -95,7 +99,7 @@ export default function SideDrawer() {
         <ListItem
           button
           component="a"
-          href="#contact"
+          href="/#contact"
           aria-label="Show Contact Section"
           classes={{ root: classes.listItem }}
         >

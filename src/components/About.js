@@ -19,7 +19,6 @@ function About() {
       mobile: true,
       reset: false,
       useDelay: "always",
-      // viewFactor: 1,
       viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },
     }
     return sr.reveal(revealContainer.current, slideUp)
