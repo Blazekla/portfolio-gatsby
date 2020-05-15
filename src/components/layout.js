@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
         <CssBaseline />
         <div className={classes.root}>
           <Header />
-          <Container maxWidth="md" className={classes.innerContainer}>
+          <Container maxWidth="lg" className={classes.innerContainer}>
             <main>{children}</main>
           </Container>
           <Footer />

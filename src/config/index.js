@@ -60,7 +60,7 @@ module.exports = {
     description:
       "I will help you create professional and beautiful solutions for all your web development needs.",
   },
-  project: [
+  projects: [
     {
       title: "MERN Shopping List",
       github: "https://github.com/Blazekla/MERN-Shopping-List",

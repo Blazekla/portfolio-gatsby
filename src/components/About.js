@@ -11,14 +11,7 @@ function About() {
   const theme = useTheme()
   const color = theme.palette.primary.contrastText
   return (
-    <ReusableContainer id="about">
-      <Typography
-        variant="h3"
-        color="secondary"
-        style={{ marginBottom: "50px" }}
-      >
-        About Me
-      </Typography>
+    <ReusableContainer id="about" title="About Me">
       <Typography paragraph style={{ color: color }}>
         Ever since I came across computers as a kid, I've been mesmerized by
         their potential. I've always found myself taking opportunites to learn

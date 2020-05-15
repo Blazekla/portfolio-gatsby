@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 //Import MaterialUI components
 import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
 
 //Import Custom Components
 import sr from "../utils/sr"
@@ -14,6 +15,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "100px",
     paddingTop: "5.5rem",
     minHeight: "400px",
+  },
+  title: {
+    marginBottom: "50px",
   },
 }))
 
@@ -42,6 +46,9 @@ function ReusableSection(props) {
 
   return (
     <div ref={revealContainer} id={props.id} className={classes.root}>
+      <Typography variant="h3" color="secondary" className={classes.title}>
+        {props.title}
+      </Typography>
       {props.children}
     </div>
   )
@@ -49,6 +56,7 @@ function ReusableSection(props) {
 
 ReusableSection.propTypes = {
   id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 }
 

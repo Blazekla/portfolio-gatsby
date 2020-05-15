@@ -10,14 +10,7 @@ function Contact() {
   const theme = useTheme()
   const color = theme.palette.primary.contrastText
   return (
-    <ReusableContainer id="contact">
-      <Typography
-        style={{ marginBottom: "50px" }}
-        color="secondary"
-        variant="h3"
-      >
-        Contact
-      </Typography>
+    <ReusableContainer id="contact" title="Contact">
       <Typography paragraph style={{ marginTop: "20px", color: color }}>
         I'm excited to work with you. Looking forward to hearing from you!
       </Typography>

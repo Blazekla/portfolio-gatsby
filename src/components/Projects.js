@@ -44,16 +44,8 @@ function Projects() {
   //End of query//
 
   return (
-    <ReusableContainer id="projects">
-      <Container maxWidth="md">
-        <Typography
-          align="center"
-          variant="h3"
-          color="secondary"
-          style={{ marginBottom: "50px" }}
-        >
-          Projects
-        </Typography>
+    <ReusableContainer id="projects" title="Projects">
+      <Container maxWidth="lg">
         <Grid
           container
           direction="row"
@@ -63,7 +55,7 @@ function Projects() {
             margin: "0px auto 100px",
           }}
         >
-          {pageData.project.map(
+          {pageData.projects.map(
             ({ title, github, external, tech, src, alt, description }, id) => {
               return (
                 <Grid
@@ -71,7 +63,7 @@ function Projects() {
                   key={id}
                   xs={12}
                   sm={6}
-                  md={6}
+                  md={4}
                   style={{ padding: "16px" }}
                 >
                   <ContentCard

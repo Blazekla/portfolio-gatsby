@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "960px",
     },
     "@media (min-width: 1200px)": {
-      maxWidth: "1140px",
+      maxWidth: "1280px",
     },
     flex: "1",
     alignItems: "center",
