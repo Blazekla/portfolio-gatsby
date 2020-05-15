@@ -3,7 +3,7 @@ module.exports = {
   siteDescription:
     "Luis Cristo is a Full Stack Web Developer especializing in creating exceptionaly high-quality websites.",
   siteKeywords:
-    "Luis Cristo, Luis, Cristo, react developer, web developer, front-end engineer, javascript, texas, full stack, node developer, backend developer",
+    "Luis Cristo, Luis, Cristo, react developer, web developer, front-end engineer, back-end engineer, javascript, texas, full stack, node developer",
   siteUrl: "https://luiscristo.com",
   siteLanguage: "en_US",
   googleAnalyticsID: "",
