@@ -6,16 +6,16 @@ import { useTheme } from "@material-ui/core/styles"
 
 //Import custom components
 import ReusableContainer from "./ReusableSection"
-import Python from "./icons/python"
-import Apollo from "./icons/apollo"
-import Django from "./icons/django"
-import Gatsby from "./icons/gatsby"
-import GraphQL from "./icons/graphql"
-import Netlify from "./icons/netlify"
-import Node from "./icons/node"
-import Nodemon from "./icons/nodemon"
-import Now from "./icons/now"
-import Re from "./icons/react"
+// import Python from "./icons/python"
+// import Apollo from "./icons/apollo"
+// import Django from "./icons/django"
+// import Gatsby from "./icons/gatsby"
+// import GraphQL from "./icons/graphql"
+// import Netlify from "./icons/netlify"
+// import Node from "./icons/node"
+// import Nodemon from "./icons/nodemon"
+// import Now from "./icons/now"
+// import Re from "./icons/react"
 
 function About() {
   const theme = useTheme()
@@ -28,7 +28,7 @@ function About() {
         more about computers by tinkering and building with them. I have decided
         to take this passion and turn it into a career.
       </Typography>
-      <Python />
+      {/* <Python />
       <Apollo />
       <Django />
       <Gatsby />
@@ -37,7 +37,7 @@ function About() {
       <Node />
       <Nodemon />
       <Now />
-      <Re />
+      <Re /> */}
       <Typography style={{ color: color }}>
         Here are some technologies I've been using:
       </Typography>
