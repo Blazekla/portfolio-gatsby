@@ -21,13 +21,16 @@ function HeroUnit() {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 3000)
+    const timeout = setTimeout(() => setIsMounted(true), 2000)
     return () => clearTimeout(timeout)
   }, [])
 
   const theme = useTheme()
   const classes = useStyles()
   const size = ["h6", "h1", "h5"]
+
+  const timeoutValue = 500
+  const transitionDelay = 200
   return (
     <React.Fragment>
       <Grid
@@ -42,7 +45,7 @@ function HeroUnit() {
           <CSSTransition
             key={id}
             in={isMounted}
-            timeout={500 + 100 * id}
+            timeout={timeoutValue + 100 * id}
             mountOnEnter
             classNames={{
               enter: "fadeup-enter",
@@ -54,12 +57,12 @@ function HeroUnit() {
             <Typography
               variant={size[id]}
               style={{
-                transitionDelay: `${200 + 100 * id}ms`,
+                transitionDelay: `${transitionDelay + 100 * id}ms`,
                 color:
-                  id == 1
+                  id === 1
                     ? theme.palette.secondary.main
                     : theme.palette.primary.contrastText,
-                marginBottom: id == 1 ? "35px" : "20px",
+                marginBottom: id === 1 ? "35px" : "20px",
               }}
             >
               {data}
@@ -71,13 +74,13 @@ function HeroUnit() {
           <Grid item>
             <CSSTransition
               in={isMounted}
-              timeout={900}
+              timeout={timeoutValue + transitionDelay + 200}
               mountOnEnter
               classNames="fadeup"
             >
               <div
                 style={{
-                  transitionDelay: "600ms",
+                  transitionDelay: `${transitionDelay + 300}ms`,
                   marginTop: "30px",
                 }}
               >

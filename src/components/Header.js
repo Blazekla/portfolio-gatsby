@@ -11,6 +11,7 @@ import { CSSTransition } from "react-transition-group"
 
 //Import custom components
 import Drawer from "./subcomponents/Drawer"
+import pageData from "../config/index"
 
 const useStyles = makeStyles(theme => ({
   sectionDesktop: {
@@ -56,19 +57,23 @@ const useStyles = makeStyles(theme => ({
 const Header = () => {
   const [isMounted, setIsMounted] = useState(false)
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 1000)
+    const timeout = setTimeout(
+      () => setIsMounted(true),
+      pageData.animationValue.timeoutDelay
+    )
     return () => clearTimeout(timeout)
   }, [])
 
   const [isAlive, setIsAlive] = useState(false)
 
   const classes = useStyles()
-
+  const timeoutValue = pageData.animationValue.timeoutValue
+  const transDelay = pageData.animationValue.transitionDelay
   return (
     <React.Fragment>
       <CSSTransition
         in={isMounted}
-        timeout={1000}
+        timeout={timeoutValue}
         mountOnEnter
         classNames="fadedown"
         onEntered={() => setIsAlive(true)}
@@ -79,14 +84,14 @@ const Header = () => {
               <div>
                 <CSSTransition
                   in={isAlive}
-                  timeout={1500}
+                  timeout={timeoutValue + transDelay}
                   mountOnEnter
                   classNames="fadedown"
                 >
                   <span
                     style={{
                       display: "block",
-                      transitionDelay: "500ms",
+                      transitionDelay: `${transDelay}ms`,
                     }}
                   >
                     <Button color="inherit" href="/" aria-label="Home Page">
@@ -97,79 +102,40 @@ const Header = () => {
               </div>
 
               <div className={classes.sectionDesktop}>
-                <CSSTransition
-                  in={isAlive}
-                  timeout={1700}
-                  mountOnEnter
-                  classNames="fadedown"
-                >
-                  <span
-                    style={{
-                      transitionDelay: "700ms",
-                    }}
+                {pageData.navLinks.map((link, id) => (
+                  <CSSTransition
+                    key={id}
+                    in={isAlive}
+                    timeout={timeoutValue + transDelay + 200 + 100 * id}
+                    mountOnEnter
+                    classNames="fadedown"
                   >
-                    <IconButton
-                      aria-label="Show Projects section"
-                      color="inherit"
-                      href="/#projects"
+                    <span
+                      style={{
+                        transitionDelay: `${transDelay + 200 + 100 * id}ms`,
+                      }}
                     >
-                      <Typography>1. Projects</Typography>
-                    </IconButton>
-                  </span>
-                </CSSTransition>
-
-                <CSSTransition
-                  in={isAlive}
-                  timeout={1800}
-                  mountOnEnter
-                  classNames="fadedown"
-                >
-                  <span
-                    style={{
-                      transitionDelay: "800ms",
-                    }}
-                  >
-                    <IconButton
-                      aria-label="Show About section"
-                      color="inherit"
-                      href="/#about"
-                    >
-                      <Typography>2. About</Typography>
-                    </IconButton>
-                  </span>
-                </CSSTransition>
-
-                <CSSTransition
-                  in={isAlive}
-                  timeout={1900}
-                  mountOnEnter
-                  classNames="fadedown"
-                >
-                  <span
-                    style={{
-                      transitionDelay: "900ms",
-                    }}
-                  >
-                    <IconButton
-                      aria-label="Show Contact section"
-                      color="inherit"
-                      href="/#contact"
-                    >
-                      <Typography>3. Contact</Typography>
-                    </IconButton>
-                  </span>
-                </CSSTransition>
+                      <IconButton
+                        aria-label={"Show " + link.name + " Section"}
+                        color="inherit"
+                        href={link.url}
+                      >
+                        <Typography>{link.name}</Typography>
+                      </IconButton>
+                    </span>
+                  </CSSTransition>
+                ))}
               </div>
               <div className={classes.sectionMobile}>
                 <CSSTransition
                   in={isAlive}
-                  timeout={1700}
+                  timeout={timeoutValue + transDelay + 200}
                   mountOnEnter
                   classNames="fadedown"
                 >
                   <span
                     style={{
-                      transitionDelay: "700ms",
+                      transitionDelay: `${transDelay + 100}ms`,
                     }}
                   >
                     <Drawer />

@@ -53,6 +53,9 @@ module.exports = {
       name: "Contact",
       url: "/#contact",
     },
+    { name: "test1", url: "/" },
+    { name: "test2", url: "/" },
+    { name: "test3", url: "/" },
   ],
   hero: [
     "Hi, my name is",
@@ -95,4 +98,9 @@ module.exports = {
       description: "#",
     },
   ],
+  animationValue: {
+    timeoutDelay: 100,
+    transitionDelay: 500,
+    timeoutValue: 500,
+  },
 }
