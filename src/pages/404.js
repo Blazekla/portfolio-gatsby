@@ -50,7 +50,7 @@ const NotFoundPage = () => {
       >
         <Grid container direction="column" className={classes.gridContainer}>
           <Grid item>
-            <h1>NOT FOUND</h1>
+            <h1>PAGE NOT FOUND</h1>
           </Grid>
           <Grid item>
             <p>You just hit a route that doesn&#39;t exist.</p>

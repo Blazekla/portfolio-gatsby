@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#333",
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
+    // minHeight: "100vh",
   },
   innerContainer: {
     minHeight: "100vh",
