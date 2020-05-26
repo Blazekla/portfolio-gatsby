@@ -1,17 +1,24 @@
 import React from "react"
 import Typography from "@material-ui/core/Typography"
-import { useTheme } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 
 //Import custom components
 import ReusableContainer from "./ReusableSection"
 
+const useStyles = makeStyles(theme => ({
+  textStyle: {
+    color: theme.palette.primary.contrastText,
+    marginTop: "20px",
+  },
+}))
+
 function Contact() {
-  const theme = useTheme()
-  const color = theme.palette.primary.contrastText
+  const classes = useStyles()
+
   return (
     <ReusableContainer id="contact" title="Contact">
-      <Typography paragraph style={{ marginTop: "20px", color: color }}>
+      <Typography paragraph className={classes.textStyle}>
         I'm excited to work with you. Looking forward to hearing from you!
       </Typography>
 

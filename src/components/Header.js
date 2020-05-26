@@ -31,6 +31,12 @@ const useStyles = makeStyles(theme => ({
     marginRight: "auto",
     marginLeft: "auto",
     width: "100%",
+    flex: "1",
+    alignItems: "center",
+    justifyContent: "space-between",
+    display: "flex",
+    flexWrap: "nowrap",
+    backgroundColor: "transparent",
 
     "@media (min-width: 576px)": {
       maxWidth: "540px",
@@ -44,12 +50,6 @@ const useStyles = makeStyles(theme => ({
     "@media (min-width: 1200px)": {
       maxWidth: "1280px",
     },
-    flex: "1",
-    alignItems: "center",
-    justifyContent: "space-between",
-    display: "flex",
-    flexWrap: "nowrap",
-    backgroundColor: "transparent",
   },
 }))
 

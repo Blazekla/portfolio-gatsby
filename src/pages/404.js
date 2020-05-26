@@ -11,6 +11,12 @@ import Button from "@material-ui/core/Button"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
+  gridContainer: {
+    paddingTop: "70px",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "600px",
+  },
   button: {
     transition: "all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)",
     "&:hover": {
@@ -42,16 +48,7 @@ const NotFoundPage = () => {
           exitActive: "",
         }}
       >
-        <Grid
-          container
-          direction="column"
-          style={{
-            paddingTop: "70px",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "600px",
-          }}
-        >
+        <Grid container direction="column" className={classes.gridContainer}>
           <Grid item>
             <h1>NOT FOUND</h1>
           </Grid>

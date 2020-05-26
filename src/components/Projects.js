@@ -18,6 +18,12 @@ const useStyles = makeStyles(theme => ({
   root: {
     //
   },
+  outerGrid: {
+    margin: "0px auto 100px",
+  },
+  singleProjectGrid: {
+    padding: "16px",
+  },
 }))
 
 function Projects() {
@@ -59,9 +65,7 @@ function Projects() {
           direction="row"
           alignItems="flex-start"
           justify="center"
-          style={{
-            margin: "0px auto 100px",
-          }}
+          className={classes.outerGrid}
         >
           {pageData.projects.map(
             ({ title, github, external, tech, src, alt, description }, id) => {
@@ -72,7 +76,7 @@ function Projects() {
                   xs={12}
                   sm={6}
                   md={4}
-                  style={{ padding: "16px" }}
+                  className={classes.singleProjectGrid}
                 >
                   <ContentCard
                     title={title}

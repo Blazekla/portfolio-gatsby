@@ -71,12 +71,9 @@ export default function SideDrawer() {
         <ListItem
           classes={{ root: classes.listItem }}
           button
-          // component="a"
-
           component={Link}
           to="/#projects"
           aria-label="Show Projects Section"
-          // href="#projects"
         >
           <ListItemIcon classes={{ root: classes.icon }}>
             <WorkIcon color="secondary" />

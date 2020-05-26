@@ -2,7 +2,7 @@ import React from "react"
 import Typography from "@material-ui/core/Typography"
 
 //Import MaterialUI Components
-import { useTheme } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 
 //Import custom components
 import ReusableContainer from "./ReusableSection"
@@ -17,12 +17,17 @@ import ReusableContainer from "./ReusableSection"
 // import Now from "./icons/now"
 // import Re from "./icons/react"
 
+const useStyle = makeStyles(theme => ({
+  textStyle: {
+    color: theme.palette.primary.contrastText,
+  },
+}))
+
 function About() {
-  const theme = useTheme()
-  const color = theme.palette.primary.contrastText
+  const classes = useStyle()
   return (
     <ReusableContainer id="about" title="About Me">
-      <Typography paragraph style={{ color: color }}>
+      <Typography paragraph className={classes.textStyle}>
         Ever since I came across computers as a kid, I've been mesmerized by
         their potential. I've always found myself taking opportunites to learn
         more about computers by tinkering and building with them. I have decided
@@ -38,11 +43,11 @@ function About() {
       <Nodemon />
       <Now />
       <Re /> */}
-      <Typography style={{ color: color }}>
+      <Typography className={classes.textStyle}>
         Here are some technologies I've been using:
       </Typography>
 
-      <Typography style={{ color: color }}>
+      <Typography className={classes.textStyle}>
         React, ES6+, HTML, CSS, Material-UI, Redux, Axios, Netlify, Node.js,
         Express.
       </Typography>
