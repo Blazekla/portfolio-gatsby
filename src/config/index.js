@@ -6,7 +6,7 @@ module.exports = {
     "Luis Cristo, Luis, Cristo, react developer, web developer, front-end engineer, back-end engineer, javascript, texas, full stack, node developer",
   siteUrl: "https://luiscristo.com",
   siteLanguage: "en_US",
-  googleAnalyticsID: "",
+  googleAnalyticsID: "G-XBBJLM72CY",
   googleVerification: "",
   name: "Luis Cristo",
   location: "Houston, TX",
