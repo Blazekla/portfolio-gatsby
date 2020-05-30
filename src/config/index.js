@@ -7,7 +7,7 @@ module.exports = {
   siteUrl: "https://luiscristo.com",
   siteLanguage: "en_US",
   googleAnalyticsID: "G-XBBJLM72CY",
-  googleVerification: "",
+  googleVerification: "vV4qXbDBzHYKIH6XwMBUeUUi6GNQ75_aahi7N6hXfQ4",
   name: "Luis Cristo",
   location: "Houston, TX",
   email: "luiscristodev@gmail.com",
