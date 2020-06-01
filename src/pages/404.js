@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEO from "../components/subcomponents/Helmet"
 import { CSSTransition } from "react-transition-group"
 import "../styles/projects.css"
 
