@@ -1,12 +1,33 @@
 import React from "react"
+import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
 //Import Custom Components
 import HomepageOG from "../../images/HomepageOG.png"
 import config from "../../config/index"
 
-function Helmet({ metadata }) {
+function SEO({ title, lang }) {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+        }
+      }
+    }
+  `)
+
+  const metadata = site.siteMetadata
+
   return (
-    <div>
+    <Helmet
+      title={title}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      htmlAttributes={{ lang }}
+    >
       <meta name="description" content={metadata.description} />
       <meta name="keywords" content={config.siteKeywords} />
       <meta
@@ -34,8 +55,19 @@ function Helmet({ metadata }) {
       <meta name="twitter:description" content={metadata.description} />
       <meta name="twitter:image" content={`${config.siteUrl}${HomepageOG}`} />
       <meta name="twitter:image:alt" content={metadata.title} />
-    </div>
+    </Helmet>
   )
 }
 
-export default Helmet
+export default SEO
+
+SEO.defaultProps = {
+  lang: `en`,
+  description: ``,
+}
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  lang: PropTypes.string,
+  description: PropTypes.string,
+}
