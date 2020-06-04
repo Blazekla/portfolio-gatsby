@@ -1,3 +1,4 @@
+require("dotenv").config()
 const config = require("./src/config")
 
 module.exports = {
@@ -49,15 +50,15 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.STRAPI_API_URL,
         queryLimit: 1000, // Default to 100
         contentTypes: [`nav-links`, `social-medias`, `projects`],
         //If using single types place them in this array.
         // singleTypes: [``],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
         loginData: {
-          identifier: "devtester",
-          password: "perrito4",
+          identifier: process.env.STRAPI_LOGIN_IDENTIFIER,
+          password: process.env.STRAPI_LOGIN_PASSWORD,
         },
       },
     },
