@@ -5,6 +5,7 @@ module.exports = {
     title: config.siteTitle,
     description: config.siteDescription,
     author: config.name,
+    siteURL: config.siteUrl,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -43,6 +44,21 @@ module.exports = {
         head: true,
         // enable ip anonymization
         anonymize: false,
+      },
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`nav-links`, `social-medias`, `projects`],
+        //If using single types place them in this array.
+        // singleTypes: [``],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: "devtester",
+          password: "perrito4",
+        },
       },
     },
   ],

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 //Import MaterialUI Components
 import makeStyles from "@material-ui/core/styles/makeStyles"
@@ -66,6 +67,17 @@ const Header = () => {
 
   const [isAlive, setIsAlive] = useState(false)
 
+  const navLinks = useStaticQuery(graphql`
+    {
+      allStrapiNavLinks {
+        nodes {
+          Title
+          Url
+        }
+      }
+    }
+  `)
+
   const classes = useStyles()
   const timeoutValue = pageData.animationValue.timeoutValue
   const transDelay = pageData.animationValue.transitionDelay
@@ -102,7 +114,30 @@ const Header = () => {
               </div>
 
               <div className={classes.sectionDesktop}>
-                {pageData.navLinks.map((link, id) => (
+                {navLinks.allStrapiNavLinks.nodes.map((link, id) => (
+                  <CSSTransition
+                    key={id}
+                    in={isAlive}
+                    timeout={timeoutValue + transDelay + 200 + 100 * id}
+                    mountOnEnter
+                    classNames="fadedown"
+                  >
+                    <span
+                      style={{
+                        transitionDelay: `${transDelay + 200 + 100 * id}ms`,
+                      }}
+                    >
+                      <IconButton
+                        aria-label={"Show " + link.Title + " Section"}
+                        color="inherit"
+                        href={link.Url}
+                      >
+                        <Typography>{link.Title}</Typography>
+                      </IconButton>
+                    </span>
+                  </CSSTransition>
+                ))}
+                {/* {pageData.navLinks.map((link, id) => (
                   <CSSTransition
                     key={id}
                     in={isAlive}
@@ -124,7 +159,7 @@ const Header = () => {
                       </IconButton>
                     </span>
                   </CSSTransition>
-                ))}
+                ))} */}
               </div>
               <div className={classes.sectionMobile}>
                 <CSSTransition

@@ -15,6 +15,7 @@ function SEO({ title, lang }) {
           title
           description
           author
+          siteURL
         }
       }
     }
@@ -28,6 +29,7 @@ function SEO({ title, lang }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       htmlAttributes={{ lang }}
     >
+      <link rel="canonical" href={site.siteMetadata.siteURL} />
       <meta name="description" content={metadata.description} />
       <meta name="keywords" content={config.siteKeywords} />
       <meta
