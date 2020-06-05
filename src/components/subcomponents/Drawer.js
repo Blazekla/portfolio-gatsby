@@ -1,4 +1,7 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
+//Import MaterialUI Components
 import { makeStyles } from "@material-ui/core/styles"
 import { Link } from "gatsby"
 import Drawer from "@material-ui/core/Drawer"
@@ -61,6 +64,17 @@ export default function SideDrawer() {
     setState({ ...state, [side]: open })
   }
 
+  const navLinks = useStaticQuery(graphql`
+    {
+      allStrapiNavLinks {
+        nodes {
+          Title
+          Url
+        }
+      }
+    }
+  `)
+
   const sideList = side => (
     <div
       className={classes.list}
@@ -68,7 +82,7 @@ export default function SideDrawer() {
       onClick={toggleDrawer(side, false)}
     >
       <List>
-        <ListItem
+        {/* <ListItem
           classes={{ root: classes.listItem }}
           button
           component={Link}
@@ -79,8 +93,27 @@ export default function SideDrawer() {
             <WorkIcon color="secondary" />
           </ListItemIcon>
           <ListItemText classes={{ root: classes.text }} primary="Projects" />
-        </ListItem>
-        <ListItem
+        </ListItem> */}
+
+        {navLinks.allStrapiNavLinks.nodes.map((link, id) => (
+          <ListItem
+            key={id}
+            classes={{ root: classes.listItem }}
+            button
+            component={Link}
+            to={link.Url}
+            aria-label="Show Projects Section"
+          >
+            <ListItemIcon classes={{ root: classes.icon }}>
+              <WorkIcon color="secondary" />
+            </ListItemIcon>
+            <ListItemText
+              classes={{ root: classes.text }}
+              primary={link.Title}
+            />
+          </ListItem>
+        ))}
+        {/* <ListItem
           classes={{ root: classes.listItem }}
           button
           component="a"
@@ -104,7 +137,7 @@ export default function SideDrawer() {
             <EmailIcon color="secondary" />
           </ListItemIcon>
           <ListItemText classes={{ root: classes.text }} primary="Contact" />
-        </ListItem>
+        </ListItem> */}
       </List>
     </div>
   )
