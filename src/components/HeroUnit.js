@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import { CSSTransition } from "react-transition-group"
 
 //Import MaterialUI Components
@@ -8,7 +9,6 @@ import Button from "@material-ui/core/Button"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 
 //Import custom components
-import pageData from "../config/index"
 import "../styles/projects.css"
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +24,20 @@ function HeroUnit() {
     const timeout = setTimeout(() => setIsMounted(true), 2000)
     return () => clearTimeout(timeout)
   }, [])
+
+  const queryData = useStaticQuery(graphql`
+    {
+      allStrapiHeroSection {
+        nodes {
+          Greeting
+          Name
+          Description
+        }
+      }
+    }
+  `)
+
+  const arrayData = Object.values(queryData.allStrapiHeroSection.nodes[0])
 
   const theme = useTheme()
   const classes = useStyles()
@@ -41,7 +55,7 @@ function HeroUnit() {
           minHeight: "100vh",
         }}
       >
-        {pageData.hero.map((data, id) => (
+        {arrayData.map((data, id) => (
           <CSSTransition
             key={id}
             in={isMounted}

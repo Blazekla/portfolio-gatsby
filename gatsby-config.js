@@ -52,9 +52,19 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`nav-links`, `social-medias`, `projects`],
+        contentTypes: [
+          `nav-links`,
+          `social-medias`,
+          `projects`,
+          `project-pages`,
+        ],
         //If using single types place them in this array.
-        // singleTypes: [``],
+        singleTypes: [
+          `hero-section`,
+          `about-section`,
+          `contact-section`,
+          `footer-section`,
+        ],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
         loginData: {
           identifier: process.env.STRAPI_LOGIN_IDENTIFIER,

@@ -36,39 +36,6 @@ module.exports = {
     // },
   ],
 
-  // navLinks: [
-  //   {
-  //     name: "Projects",
-  //     url: "/#projects",
-  //   },
-  //   {
-  //     name: "About",
-  //     url: "/#about",
-  //   },
-  //   // {
-  //   //   name: "Experience",
-  //   //   url: "/#jobs",
-  //   // },
-  //   {
-  //     name: "Contact",
-  //     url: "/#contact",
-  //   },
-  //   // { name: "test1", url: "/" },
-  //   // { name: "test2", url: "/" },
-  //   // { name: "test3", url: "/" },
-  // ],
-  hero: [
-    "Hi, my name is",
-    "Luis Cristo.",
-    "I will help you create professional and beautiful solutions for all your web development needs.",
-    // "randooom",
-  ],
-  // hero: {
-  //   title: "Hi, my name is",
-  //   name: "Luis Cristo.",
-  //   description:
-  //     "I will help you create professional and beautiful solutions for all your web development needs.",
-  // },
   projects: [
     {
       title: "MERN Shopping List",
