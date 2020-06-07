@@ -36,27 +36,27 @@ module.exports = {
     // },
   ],
 
-  navLinks: [
-    {
-      name: "Projects",
-      url: "/#projects",
-    },
-    {
-      name: "About",
-      url: "/#about",
-    },
-    // {
-    //   name: "Experience",
-    //   url: "/#jobs",
-    // },
-    {
-      name: "Contact",
-      url: "/#contact",
-    },
-    // { name: "test1", url: "/" },
-    // { name: "test2", url: "/" },
-    // { name: "test3", url: "/" },
-  ],
+  // navLinks: [
+  //   {
+  //     name: "Projects",
+  //     url: "/#projects",
+  //   },
+  //   {
+  //     name: "About",
+  //     url: "/#about",
+  //   },
+  //   // {
+  //   //   name: "Experience",
+  //   //   url: "/#jobs",
+  //   // },
+  //   {
+  //     name: "Contact",
+  //     url: "/#contact",
+  //   },
+  //   // { name: "test1", url: "/" },
+  //   // { name: "test2", url: "/" },
+  //   // { name: "test3", url: "/" },
+  // ],
   hero: [
     "Hi, my name is",
     "Luis Cristo.",

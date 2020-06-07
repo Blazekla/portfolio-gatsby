@@ -1,18 +1,13 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 //Import MaterialUI Components
 import { makeStyles } from "@material-ui/core/styles"
-import { Link } from "gatsby"
 import Drawer from "@material-ui/core/Drawer"
 import Button from "@material-ui/core/Button"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
-import WorkIcon from "@material-ui/icons/Work"
-import EmailIcon from "@material-ui/icons/Email"
-import AccountBoxIcon from "@material-ui/icons/AccountBox"
 import MoreIcon from "@material-ui/icons/MoreVert"
 
 const useStyles = makeStyles(theme => ({
@@ -27,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   text: {
     flex: "1 1 50%",
-    textAlign: "left",
+    textAlign: "center",
   },
   listItem: {
     justifyContent: "center",
@@ -35,12 +30,6 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       textAlign: "right",
     },
-  },
-  icon: {
-    flex: "1 1 50%",
-    minWidth: "30px",
-    justifyContent: "flex-end",
-    paddingRight: "5px",
   },
 }))
 
@@ -82,19 +71,6 @@ export default function SideDrawer() {
       onClick={toggleDrawer(side, false)}
     >
       <List>
-        {/* <ListItem
-          classes={{ root: classes.listItem }}
-          button
-          component={Link}
-          to="/#projects"
-          aria-label="Show Projects Section"
-        >
-          <ListItemIcon classes={{ root: classes.icon }}>
-            <WorkIcon color="secondary" />
-          </ListItemIcon>
-          <ListItemText classes={{ root: classes.text }} primary="Projects" />
-        </ListItem> */}
-
         {navLinks.allStrapiNavLinks.nodes.map((link, id) => (
           <ListItem
             key={id}
@@ -102,42 +78,14 @@ export default function SideDrawer() {
             button
             component={Link}
             to={link.Url}
-            aria-label="Show Projects Section"
+            aria-label={`Show ${link.Title} Section`}
           >
-            <ListItemIcon classes={{ root: classes.icon }}>
-              <WorkIcon color="secondary" />
-            </ListItemIcon>
             <ListItemText
               classes={{ root: classes.text }}
               primary={link.Title}
             />
           </ListItem>
         ))}
-        {/* <ListItem
-          classes={{ root: classes.listItem }}
-          button
-          component="a"
-          href="/#about"
-          aria-label="Show About Section"
-          color="secondary"
-        >
-          <ListItemIcon classes={{ root: classes.icon }}>
-            <AccountBoxIcon color="secondary" />
-          </ListItemIcon>
-          <ListItemText classes={{ root: classes.text }} primary="About" />
-        </ListItem>
-        <ListItem
-          button
-          component="a"
-          href="/#contact"
-          aria-label="Show Contact Section"
-          classes={{ root: classes.listItem }}
-        >
-          <ListItemIcon classes={{ root: classes.icon }}>
-            <EmailIcon color="secondary" />
-          </ListItemIcon>
-          <ListItemText classes={{ root: classes.text }} primary="Contact" />
-        </ListItem> */}
       </List>
     </div>
   )
