@@ -33,8 +33,6 @@ function About() {
       strapiAboutSection {
         Title
         Description
-        RichText
-        TechInfo
       }
     }
   `)
