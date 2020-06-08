@@ -55,7 +55,7 @@ export default function SideDrawer() {
 
   const navLinks = useStaticQuery(graphql`
     {
-      allStrapiNavLinks {
+      allStrapiNavLinks(sort: { order: ASC, fields: Order }) {
         nodes {
           Title
           Url

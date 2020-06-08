@@ -27,9 +27,21 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function Projects() {
-  //Gatsby Image query//
+  //Gatsby Image & Data query//
   const data = useStaticQuery(graphql`
     query {
+      projects: allStrapiProjects(sort: { fields: Order, order: ASC }) {
+        nodes {
+          Order
+          Title
+          Github
+          ExternalLink
+          Src
+          ImgAlt
+          Description
+          Tech
+        }
+      }
       homepage: file(relativePath: { eq: "homepage.png" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
@@ -55,6 +67,7 @@ function Projects() {
   `)
   //End of query//
 
+  console.log("generating: ", data)
   const classes = useStyles()
 
   return (
@@ -67,30 +80,28 @@ function Projects() {
           justify="center"
           className={classes.outerGrid}
         >
-          {pageData.projects.map(
-            ({ title, github, external, tech, src, alt, description }, id) => {
-              return (
-                <Grid
-                  item
-                  key={id}
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  className={classes.singleProjectGrid}
-                >
-                  <ContentCard
-                    title={title}
-                    code={github}
-                    external={external}
-                    technology={tech}
-                    imageSource={data[src].childImageSharp.fluid}
-                    alt={alt}
-                    desc={description}
-                  />
-                </Grid>
-              )
-            }
-          )}
+          {data.projects.nodes.map((project, id) => {
+            return (
+              <Grid
+                item
+                key={id}
+                xs={12}
+                sm={6}
+                md={4}
+                className={classes.singleProjectGrid}
+              >
+                <ContentCard
+                  title={project.Title}
+                  code={project.Github}
+                  external={project.ExternalLink}
+                  technology={project.Tech}
+                  imageSource={data[project.Src].childImageSharp.fluid} //Replace with image asset
+                  alt={project.ImgAlt}
+                  desc={project.Description}
+                />
+              </Grid>
+            )
+          })}
         </Grid>
       </Container>
     </ReusableContainer>
