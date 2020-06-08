@@ -67,7 +67,6 @@ function Projects() {
   `)
   //End of query//
 
-  console.log("generating: ", data)
   const classes = useStyles()
 
   return (
