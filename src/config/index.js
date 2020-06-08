@@ -13,28 +13,28 @@ module.exports = {
   email: "luiscristodev@gmail.com",
   github: "https://github.com/blazekla",
   //   twitterHandle: "@",
-  socialMedia: [
-    {
-      name: "GitHub",
-      url: "https://github.com/blazekla",
-    },
-    {
-      name: "Linkedin",
-      url: "https://www.linkedin.com/in/luiscristo1/",
-    },
-    // {
-    //   name: "Codepen",
-    //   url: "https://codepen.io/",
-    // },
-    // {
-    //   name: "Instagram",
-    //   url: "https://www.instagram.com/",
-    // },
-    // {
-    //   name: "Twitter",
-    //   url: "https://twitter.com/",
-    // },
-  ],
+  // socialMedia: [
+  //   {
+  //     name: "GitHub",
+  //     url: "https://github.com/blazekla",
+  //   },
+  //   {
+  //     name: "Linkedin",
+  //     url: "https://www.linkedin.com/in/luiscristo1/",
+  //   },
+  //   // {
+  //   //   name: "Codepen",
+  //   //   url: "https://codepen.io/",
+  //   // },
+  //   // {
+  //   //   name: "Instagram",
+  //   //   url: "https://www.instagram.com/",
+  //   // },
+  //   // {
+  //   //   name: "Twitter",
+  //   //   url: "https://twitter.com/",
+  //   // },
+  // ],
 
   projects: [
     {

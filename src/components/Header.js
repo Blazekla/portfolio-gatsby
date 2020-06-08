@@ -69,10 +69,11 @@ const Header = () => {
 
   const navLinks = useStaticQuery(graphql`
     {
-      allStrapiNavLinks {
+      allStrapiNavLinks(sort: { order: ASC, fields: Order }) {
         nodes {
           Title
           Url
+          AriaLabel
         }
       }
     }
@@ -128,7 +129,7 @@ const Header = () => {
                       }}
                     >
                       <IconButton
-                        aria-label={"Show " + link.Title + " Section"}
+                        aria-label={link.AriaLabel}
                         color="inherit"
                         href={link.Url}
                       >
@@ -136,30 +137,28 @@ const Header = () => {
                       </IconButton>
                     </span>
                   </CSSTransition>
+                  // <CSSTransition
+                  //   key={id}
+                  //   in={isAlive}
+                  //   timeout={timeoutValue + transDelay + 200 + 100 * id}
+                  //   mountOnEnter
+                  //   classNames="fadedown"
+                  // >
+                  //   <span
+                  //     style={{
+                  //       transitionDelay: `${transDelay + 200 + 100 * id}ms`,
+                  //     }}
+                  //   >
+                  //     <IconButton
+                  //       aria-label={"Show " + link.Title + " Section"}
+                  //       color="inherit"
+                  //       href={link.Url}
+                  //     >
+                  //       <Typography>{link.Title}</Typography>
+                  //     </IconButton>
+                  //   </span>
+                  // </CSSTransition>
                 ))}
-                {/* {pageData.navLinks.map((link, id) => (
-                  <CSSTransition
-                    key={id}
-                    in={isAlive}
-                    timeout={timeoutValue + transDelay + 200 + 100 * id}
-                    mountOnEnter
-                    classNames="fadedown"
-                  >
-                    <span
-                      style={{
-                        transitionDelay: `${transDelay + 200 + 100 * id}ms`,
-                      }}
-                    >
-                      <IconButton
-                        aria-label={"Show " + link.name + " Section"}
-                        color="inherit"
-                        href={link.url}
-                      >
-                        <Typography>{link.name}</Typography>
-                      </IconButton>
-                    </span>
-                  </CSSTransition>
-                ))} */}
               </div>
               <div className={classes.sectionMobile}>
                 <CSSTransition
