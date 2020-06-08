@@ -1,10 +1,9 @@
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import ReactMarkDown from "react-markdown"
 
 //Import MaterialUI Components
 import { makeStyles } from "@material-ui/core/styles"
-import Typography from "@material-ui/core/Typography"
 
 //Import custom components
 import ReusableContainer from "./ReusableSection"
@@ -49,7 +48,10 @@ function About() {
       <Nodemon />
       <Now />
       <Re /> */}
-      <ReactMarkDown source={data.strapiAboutSection.RichText} />
+      <ReactMarkDown
+        source={data.strapiAboutSection.Description}
+        className={classes.textStyle}
+      />
     </ReusableContainer>
   )
 }

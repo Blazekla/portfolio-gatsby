@@ -12,7 +12,6 @@ import { useStaticQuery, graphql } from "gatsby"
 //Import custom components
 import ContentCard from "./subcomponents/Card"
 import ReusableContainer from "./ReusableSection"
-import pageData from "../config/index"
 
 const useStyles = makeStyles(theme => ({
   root: {

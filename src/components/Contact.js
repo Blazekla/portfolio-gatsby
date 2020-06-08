@@ -1,4 +1,7 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
+//import MaterialUI Components
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
@@ -16,10 +19,19 @@ const useStyles = makeStyles(theme => ({
 function Contact() {
   const classes = useStyles()
 
+  const data = useStaticQuery(graphql`
+    {
+      strapiContactSection {
+        Title
+        Description
+      }
+    }
+  `)
+
   return (
-    <ReusableContainer id="contact" title="Contact">
+    <ReusableContainer id="contact" title={data.strapiContactSection.Title}>
       <Typography paragraph className={classes.textStyle}>
-        I'm excited to work with you. Looking forward to hearing from you!
+        {data.strapiContactSection.Description}
       </Typography>
 
       <Button
