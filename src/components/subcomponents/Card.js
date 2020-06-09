@@ -1,4 +1,8 @@
 import React from "react"
+//Gatsby
+import Img from "gatsby-image"
+import { Link } from "gatsby"
+
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import {
@@ -6,38 +10,36 @@ import {
   CardContent,
   CardActions,
   Button,
-  Typography,
+  Typography
 } from "@material-ui/core"
-import Link from "@material-ui/core/Link"
-
-//Gatsby
-import Img from "gatsby-image"
+import ButtonLink from "@material-ui/core/Link"
 
 const useStyles = makeStyles(theme => ({
   card: {
     transition: "all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-    },
+      transform: "translateY(-5px)"
+    }
   },
   cardAction: {
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   cardContent: {
-    textAlign: "center",
+    textAlign: "center"
   },
   link: {
     "&:hover": {
-      color: theme.palette.secondary.main,
-    },
-  },
+      color: theme.palette.secondary.main
+    }
+  }
 }))
 
 function ContentCard(props) {
   const classes = useStyles()
+  const url = props.link
   return (
     <Card className={classes.card}>
-      <CardActionArea disableRipple={true}>
+      <CardActionArea disableRipple={true} component={Link} to={`/${url}`}>
         <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
       </CardActionArea>
       <CardContent className={classes.cardContent}>
@@ -46,7 +48,7 @@ function ContentCard(props) {
 
       <CardActions className={classes.cardAction}>
         <Button size="small" color="primary">
-          <Link
+          <ButtonLink
             color="textPrimary"
             href={props.code}
             target="_blank"
@@ -55,10 +57,10 @@ function ContentCard(props) {
             rel="noopener"
           >
             View Code
-          </Link>
+          </ButtonLink>
         </Button>
         <Button size="small" color="primary">
-          <Link
+          <ButtonLink
             color="textSecondary"
             href={props.external}
             target="_blank"
@@ -66,7 +68,7 @@ function ContentCard(props) {
             rel="noopener"
           >
             Live Demo
-          </Link>
+          </ButtonLink>
         </Button>
       </CardActions>
     </Card>

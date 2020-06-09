@@ -18,11 +18,11 @@ const useStyles = makeStyles(theme => ({
     //
   },
   outerGrid: {
-    margin: "0px auto 100px",
+    margin: "0px auto 100px"
   },
   singleProjectGrid: {
-    padding: "16px",
-  },
+    padding: "16px"
+  }
 }))
 
 function Projects() {
@@ -39,8 +39,17 @@ function Projects() {
           ImgAlt
           Description
           Tech
+          MainImage {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          Slug
         }
       }
+
       homepage: file(relativePath: { eq: "homepage.png" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
@@ -78,6 +87,16 @@ function Projects() {
           justify="center"
           className={classes.outerGrid}
         >
+          {/* <Grid item>
+            <ReactMarkDown source={data.single.nodes[0].Description} />
+          </Grid>
+          <Grid item>
+            <img src={data.single.nodes[0].MainImage.publicURL} />
+          </Grid>
+          <Grid item>
+            <img src={data.single.nodes[0].MainImage.absolutePath} />
+          </Grid> */}
+
           {data.projects.nodes.map((project, id) => {
             return (
               <Grid
@@ -93,9 +112,11 @@ function Projects() {
                   code={project.Github}
                   external={project.ExternalLink}
                   technology={project.Tech}
-                  imageSource={data[project.Src].childImageSharp.fluid} //Replace with image asset
+                  // imageSource={data[project.Src].childImageSharp.fluid} //Replace with image asset
+                  imageSource={project.MainImage.childImageSharp.fluid}
                   alt={project.ImgAlt}
                   desc={project.Description}
+                  link={project.Slug}
                 />
               </Grid>
             )
