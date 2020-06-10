@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import ReactMarkdown from "react-markdown"
+import ReactMarkdown from "react-markdown"
 
 //import MaterialUI Components
 import Grid from "@material-ui/core/Grid"
@@ -32,19 +32,27 @@ export const data = graphql`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    //
+    paddingTop: "4rem",
+  },
+  textStyle: {
+    color: theme.palette.primary.contrastText,
   },
 }))
-function ProjectPage() {
+function ProjectPage({ data }) {
+  console.log(data)
   const classes = useStyles()
   return (
     <Layout>
       <Grid container className={classes.root}>
         <Grid item>
-          <Typography>Title here</Typography>
+          <Typography>{data.Title}</Typography>
         </Grid>
-        {/* <ReactMarkdown/>     */}
-        Content Here
+        <Grid item>
+          <ReactMarkdown
+            source={data.strapiProjects.Description}
+            className={classes.textStyle}
+          />
+        </Grid>
       </Grid>
     </Layout>
   )

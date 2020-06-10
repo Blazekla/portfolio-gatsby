@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `projects/${entry.Slug}`,
       component: projectTemplate,
-      contect: {
+      context: {
         //Data passed to context is available
         //in page queries as GraphQL variables.
         slug: entry.Slug,
