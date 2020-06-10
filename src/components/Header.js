@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 //Import MaterialUI Components
 import makeStyles from "@material-ui/core/styles/makeStyles"
@@ -18,14 +18,14 @@ const useStyles = makeStyles(theme => ({
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
-      display: "flex",
-    },
+      display: "flex"
+    }
   },
   sectionMobile: {
     display: "flex",
     [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+      display: "none"
+    }
   },
   toolbarContainer: {
     paddingRight: "15px",
@@ -41,18 +41,18 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "transparent",
 
     "@media (min-width: 576px)": {
-      maxWidth: "540px",
+      maxWidth: "540px"
     },
     "@media (min-width: 768px)": {
-      maxWidth: "720px",
+      maxWidth: "720px"
     },
     "@media (min-width: 992px)": {
-      maxWidth: "960px",
+      maxWidth: "960px"
     },
     "@media (min-width: 1200px)": {
-      maxWidth: "1280px",
-    },
-  },
+      maxWidth: "1280px"
+    }
+  }
 }))
 
 const Header = () => {
@@ -104,7 +104,7 @@ const Header = () => {
                   <span
                     style={{
                       display: "block",
-                      transitionDelay: `${transDelay}ms`,
+                      transitionDelay: `${transDelay}ms`
                     }}
                   >
                     <Button color="inherit" href="/" aria-label="Home Page">
@@ -125,13 +125,15 @@ const Header = () => {
                   >
                     <span
                       style={{
-                        transitionDelay: `${transDelay + 200 + 100 * id}ms`,
+                        transitionDelay: `${transDelay + 200 + 100 * id}ms`
                       }}
                     >
                       <IconButton
                         aria-label={link.AriaLabel}
                         color="inherit"
-                        href={link.Url}
+                        component={Link}
+                        to={link.Url}
+                        // href={link.Url}
                       >
                         <Typography>{link.Title}</Typography>
                       </IconButton>
@@ -169,7 +171,7 @@ const Header = () => {
                 >
                   <span
                     style={{
-                      transitionDelay: `${transDelay + 100}ms`,
+                      transitionDelay: `${transDelay + 100}ms`
                     }}
                   >
                     <Drawer />

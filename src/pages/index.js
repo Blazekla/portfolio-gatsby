@@ -13,11 +13,13 @@ import Contact from "../components/Contact"
 const IndexPage = () => {
   return (
     <Layout>
-      <Helmet title="Home" />
-      <HeroBanner />
-      <Projects />
-      <About />
-      <Contact />
+      <div onScroll={() => console.log("scrolling..")}>
+        <Helmet title="Home" />
+        <HeroBanner />
+        <Projects />
+        <About />
+        <Contact />
+      </div>
     </Layout>
   )
 }

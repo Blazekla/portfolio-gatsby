@@ -32,14 +32,13 @@ export const data = graphql`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: "4rem",
+    paddingTop: "4rem"
   },
   textStyle: {
-    color: theme.palette.primary.contrastText,
-  },
+    color: theme.palette.primary.contrastText
+  }
 }))
 function ProjectPage({ data }) {
-  console.log(data)
   const classes = useStyles()
   return (
     <Layout>
