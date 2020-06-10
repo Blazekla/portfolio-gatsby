@@ -35,21 +35,34 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "4rem"
   },
   textStyle: {
-    color: theme.palette.primary.contrastText
+    color: theme.palette.primary.contrastText,
+    "& h1": {
+      border: "1px solid black"
+    }
   }
 }))
 function ProjectPage({ data }) {
   const classes = useStyles()
   return (
     <Layout>
-      <Grid container className={classes.root}>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        className={classes.root}
+      >
         <Grid item>
-          <Typography>{data.Title}</Typography>
+          <Typography>{data.strapiProjects.Title}</Typography>
         </Grid>
         <Grid item>
           <ReactMarkdown
             source={data.strapiProjects.Description}
             className={classes.textStyle}
+            renderers={{
+              heading: props => (
+                <Typography color="secondary">{props.children}</Typography>
+              )
+            }}
           />
         </Grid>
       </Grid>

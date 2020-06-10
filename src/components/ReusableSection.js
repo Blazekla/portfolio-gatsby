@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "100px",
     paddingTop: "5.5rem",
     minHeight: "400px",
-    scrollMarginTop: "4rem"
+    scrollMarginTop: "1rem"
   },
   title: {
     marginBottom: "50px"

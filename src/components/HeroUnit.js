@@ -13,8 +13,8 @@ import "../styles/projects.css"
 
 const useStyles = makeStyles(theme => ({
   ctaButton: {
-    padding: "20px 28px",
-  },
+    padding: "20px 28px"
+  }
 }))
 
 function HeroUnit() {
@@ -52,7 +52,7 @@ function HeroUnit() {
         direction="column"
         justify="center"
         style={{
-          minHeight: "100vh",
+          height: "100vh"
         }}
       >
         {arrayData.map((data, id) => (
@@ -65,7 +65,7 @@ function HeroUnit() {
               enter: "fadeup-enter",
               enterActive: "fadeup-enter-active",
               exit: "",
-              exitActive: "",
+              exitActive: ""
             }}
           >
             <Typography
@@ -76,7 +76,7 @@ function HeroUnit() {
                   id === 1
                     ? theme.palette.secondary.main
                     : theme.palette.primary.contrastText,
-                marginBottom: id === 1 ? "35px" : "20px",
+                marginBottom: id === 1 ? "35px" : "20px"
               }}
             >
               {data}
@@ -95,7 +95,7 @@ function HeroUnit() {
               <div
                 style={{
                   transitionDelay: `${transitionDelay + 300}ms`,
-                  marginTop: "30px",
+                  marginTop: "30px"
                 }}
               >
                 {/* div element necessary to apply transition since Button component
