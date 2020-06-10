@@ -10,7 +10,7 @@ import {
   CardContent,
   CardActions,
   Button,
-  Typography
+  Typography,
 } from "@material-ui/core"
 import ButtonLink from "@material-ui/core/Link"
 
@@ -18,20 +18,20 @@ const useStyles = makeStyles(theme => ({
   card: {
     transition: "all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)",
     "&:hover": {
-      transform: "translateY(-5px)"
-    }
+      transform: "translateY(-5px)",
+    },
   },
   cardAction: {
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   cardContent: {
-    textAlign: "center"
+    textAlign: "center",
   },
   link: {
     "&:hover": {
-      color: theme.palette.secondary.main
-    }
-  }
+      color: theme.palette.secondary.main,
+    },
+  },
 }))
 
 function ContentCard(props) {
@@ -39,7 +39,11 @@ function ContentCard(props) {
   const url = props.link
   return (
     <Card className={classes.card}>
-      <CardActionArea disableRipple={true} component={Link} to={`/${url}`}>
+      <CardActionArea
+        disableRipple={true}
+        component={Link}
+        to={`/projects/${url}`}
+      >
         <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
       </CardActionArea>
       <CardContent className={classes.cardContent}>

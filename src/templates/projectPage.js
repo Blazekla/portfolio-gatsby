@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 // import ReactMarkdown from "react-markdown"
 
 //import MaterialUI Components
@@ -10,12 +10,32 @@ import { makeStyles } from "@material-ui/core/styles"
 //import custom components
 import Layout from "../components/layout"
 
+export const data = graphql`
+  query($slug: String!) {
+    strapiProjects(Slug: { eq: $slug }) {
+      Title
+      ExternalLink
+      Github
+      Description
+      ImgAlt
+      MainImage {
+        childImageSharp {
+          fluid {
+            src
+          }
+        }
+      }
+      Tech
+    }
+  }
+`
+
 const useStyles = makeStyles(theme => ({
   root: {
     //
-  }
+  },
 }))
-function projectPage() {
+function ProjectPage() {
   const classes = useStyles()
   return (
     <Layout>
@@ -30,4 +50,4 @@ function projectPage() {
   )
 }
 
-export default projectPage
+export default ProjectPage

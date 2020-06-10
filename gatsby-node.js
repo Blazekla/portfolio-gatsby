@@ -1,3 +1,5 @@
+const path = require("path")
+
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
@@ -12,4 +14,30 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       },
     })
   }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const projectTemplate = path.resolve("./src/templates/projectPage.js")
+  const res = await graphql(`
+    {
+      allStrapiProjects {
+        nodes {
+          Slug
+        }
+      }
+    }
+  `)
+
+  res.data.allStrapiProjects.nodes.forEach(entry => {
+    createPage({
+      path: `projects/${entry.Slug}`,
+      component: projectTemplate,
+      contect: {
+        //Data passed to context is available
+        //in page queries as GraphQL variables.
+        slug: entry.Slug,
+      },
+    })
+  })
 }
