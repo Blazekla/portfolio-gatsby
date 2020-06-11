@@ -47,28 +47,7 @@ function Projects() {
             }
           }
           Slug
-        }
-      }
-
-      homepage: file(relativePath: { eq: "homepage.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      MERN: file(relativePath: { eq: "MERN-project.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      Pinterest: file(relativePath: { eq: "Pinterest-project.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
+          SEODescription
         }
       }
     }
@@ -87,16 +66,6 @@ function Projects() {
           justify="center"
           className={classes.outerGrid}
         >
-          {/* <Grid item>
-            <ReactMarkDown source={data.single.nodes[0].Description} />
-          </Grid>
-          <Grid item>
-            <img src={data.single.nodes[0].MainImage.publicURL} />
-          </Grid>
-          <Grid item>
-            <img src={data.single.nodes[0].MainImage.absolutePath} />
-          </Grid> */}
-
           {data.projects.nodes.map((project, id) => {
             return (
               <Grid
@@ -112,10 +81,9 @@ function Projects() {
                   code={project.Github}
                   external={project.ExternalLink}
                   technology={project.Tech}
-                  // imageSource={data[project.Src].childImageSharp.fluid} //Replace with image asset
                   imageSource={project.MainImage.childImageSharp.fluid}
                   alt={project.ImgAlt}
-                  desc={project.Description}
+                  desc={project.SEODescription}
                   link={project.Slug}
                 />
               </Grid>

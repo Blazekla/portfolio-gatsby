@@ -8,7 +8,7 @@ function django() {
     <SvgIcon
       width="300"
       height="300"
-      enable-background="new 0 0 436.505 152.503"
+      enableBackground="new 0 0 436.505 152.503"
       overflow="visible"
       version="1.0"
       viewBox="0 0 300 299.99999"

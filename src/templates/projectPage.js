@@ -32,7 +32,7 @@ export const data = graphql`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: "4rem"
+    paddingTop: "5rem"
   },
   textStyle: {
     color: theme.palette.primary.contrastText,
