@@ -6,9 +6,11 @@ import ReactMarkdown from "react-markdown"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
+import Conatiner from "@material-ui/core/Container"
 
 //import custom components
 import Layout from "../components/layout"
+import Container from "@material-ui/core/Container"
 
 export const data = graphql`
   query($slug: String!) {
@@ -20,8 +22,8 @@ export const data = graphql`
       ImgAlt
       MainImage {
         childImageSharp {
-          fluid {
-            src
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -34,10 +36,20 @@ const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: "5rem"
   },
-  textStyle: {
+  title: {
+    textAlign: "center"
+  },
+  reactMarkdown: {
     color: theme.palette.primary.contrastText,
-    "& h1": {
-      border: "1px solid black"
+    // textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    "& h1,h2,h3,h4,h5,h6": {
+      marginBottom: "2rem"
+    },
+    "& p": {
+      // backgroundColor: "pink"
     }
   }
 }))
@@ -45,27 +57,43 @@ function ProjectPage({ data }) {
   const classes = useStyles()
   return (
     <Layout>
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        className={classes.root}
-      >
-        <Grid item>
-          <Typography>{data.strapiProjects.Title}</Typography>
+      <Container maxWidth="lg">
+        <Grid
+          container
+          direction="column"
+          alignItems="center"
+          className={classes.root}
+        >
+          <Grid item>
+            <Typography variant="h1" className={classes.title}>
+              {data.strapiProjects.Title} Project Case
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <ReactMarkdown
+              source={data.strapiProjects.Description}
+              className={classes.reactMarkdown}
+              renderers={{
+                heading: props => (
+                  <Typography color="secondary" variant={`h${props.level}`}>
+                    {props.children}
+                  </Typography>
+                ),
+                image: props => (
+                  // <Grid item xs={12} sm={6} md={4}>
+                  <img
+                    src={props.src}
+                    alt={props.alt}
+                    style={{ maxWidth: "50vw" }}
+                    title={props.alt}
+                  />
+                  // </Grid>
+                )
+              }}
+            />
+          </Grid>
         </Grid>
-        <Grid item>
-          <ReactMarkdown
-            source={data.strapiProjects.Description}
-            className={classes.textStyle}
-            renderers={{
-              heading: props => (
-                <Typography color="secondary">{props.children}</Typography>
-              )
-            }}
-          />
-        </Grid>
-      </Grid>
+      </Container>
     </Layout>
   )
 }
