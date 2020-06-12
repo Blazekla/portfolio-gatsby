@@ -26,15 +26,11 @@ const useStyles = makeStyles(theme => ({
         opacity: "0.01"
       }
     }
-    // paddingRight: "4px",
-    // paddingLeft: "4px"
   },
   mediaSection: {
-    // backgroundColor: "rgba(0,0,0,0.9)"
     position: "relative"
   },
   backdrop: {
-    // opacity: "0.9"
     position: "absolute",
     left: "0",
     right: "0",
@@ -51,7 +47,6 @@ const useStyles = makeStyles(theme => ({
   cardContent: {
     textAlign: "center",
     flexGrow: "1"
-    // maxHeight: "50px"
   },
   link: {
     "&:hover": {
@@ -61,14 +56,19 @@ const useStyles = makeStyles(theme => ({
   projectLinkText: {
     textDecoration: "none",
     textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    display: "block",
     "&:hover": {
       color: theme.palette.secondary.main
     }
   },
   title: {
-    "&:hover": {
-      backgroundColor: "pink"
-    }
+    position: "absolute",
+    top: "50%",
+    zIndex: "1",
+    textAlign: "center",
+    width: "100%"
   }
 }))
 
@@ -84,17 +84,7 @@ function ContentCard(props) {
         className={classes.mediaSection}
       >
         <span className={classes.backdrop}></span>
-        <Typography
-          color="secondary"
-          style={{
-            position: "absolute",
-            top: "50%",
-            zIndex: "1",
-            textAlign: "center",
-            width: "100%"
-          }}
-          className={classes.title}
-        >
+        <Typography color="secondary" className={classes.title} variant="h4">
           {props.title}
         </Typography>
         <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
@@ -110,9 +100,7 @@ function ContentCard(props) {
           color="textPrimary"
           className={classes.projectLinkText}
         >
-          {/* See Project Case */}
           {props.desc}
-          {/* {props.desc.substring(0, 50).concat("...see more")} */}
         </Typography>
       </CardContent>
       {/* //// */}
