@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     margin: "0px auto 100px"
   },
   singleProjectGrid: {
-    padding: "16px"
+    padding: "4px"
   }
 }))
 
