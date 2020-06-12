@@ -34,23 +34,29 @@ export const data = graphql`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: "5rem"
+    paddingTop: "5rem",
+    paddingBottom: "5rem"
   },
   title: {
-    textAlign: "center"
+    textAlign: "center",
+    paddingBottom: "5rem"
   },
   reactMarkdown: {
     color: theme.palette.primary.contrastText,
-    // textAlign: "center",
+
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     "& h1,h2,h3,h4,h5,h6": {
-      marginBottom: "2rem"
+      marginBottom: "4rem",
+      marginTop: "4rem"
     },
     "& p": {
-      // backgroundColor: "pink"
+      // marginBottom: "1rem"
     }
+  },
+  test: {
+    textAlign: "center"
   }
 }))
 function ProjectPage({ data }) {
@@ -65,17 +71,23 @@ function ProjectPage({ data }) {
           className={classes.root}
         >
           <Grid item>
-            <Typography variant="h1" className={classes.title}>
+            <Typography variant="h2" component="h1" className={classes.title}>
               {data.strapiProjects.Title} Project Case
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid
+          // item xs={12} sm={6} md={4}
+          >
             <ReactMarkdown
               source={data.strapiProjects.Description}
               className={classes.reactMarkdown}
               renderers={{
                 heading: props => (
-                  <Typography color="secondary" variant={`h${props.level}`}>
+                  <Typography
+                    color="secondary"
+                    variant={`h${props.level}`}
+                    className={classes.test}
+                  >
                     {props.children}
                   </Typography>
                 ),
