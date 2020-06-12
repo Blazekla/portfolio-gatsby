@@ -7,20 +7,23 @@ import { makeStyles } from "@material-ui/core/styles"
 
 //Import custom components
 import ReusableContainer from "./ReusableSection"
-import Python from "./icons/python"
-import Apollo from "./icons/apollo"
-import Django from "./icons/django"
-import Gatsby from "./icons/gatsby"
-import GraphQL from "./icons/graphql"
-import Netlify from "./icons/netlify"
-import Node from "./icons/node"
-import Nodemon from "./icons/nodemon"
-import Now from "./icons/now"
-import Re from "./icons/react"
+// import Python from "./icons/python"
+// import Apollo from "./icons/apollo"
+// import Django from "./icons/django"
+// import Gatsby from "./icons/gatsby"
+// import GraphQL from "./icons/graphql"
+// import Netlify from "./icons/netlify"
+// import Node from "./icons/node"
+// import Nodemon from "./icons/nodemon"
+// import Now from "./icons/now"
+// import Re from "./icons/react"
 
 const useStyle = makeStyles(theme => ({
   textStyle: {
     color: theme.palette.primary.contrastText
+  },
+  listItem: {
+    listStyleType: "none"
   }
 }))
 
@@ -38,7 +41,7 @@ function About() {
 
   return (
     <ReusableContainer id="about" title={data.strapiAboutSection.Title}>
-      <Python />
+      {/* <Python />
       <Apollo />
       <Django />
       <Gatsby />
@@ -47,10 +50,15 @@ function About() {
       <Node />
       <Nodemon />
       <Now />
-      <Re />
+      <Re /> */}
       <ReactMarkDown
         source={data.strapiAboutSection.Description}
         className={classes.textStyle}
+        renderers={{
+          listItem: props => {
+            return <li className={classes.listItem}>{props.children}</li>
+          }
+        }}
       />
     </ReusableContainer>
   )

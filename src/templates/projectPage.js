@@ -6,11 +6,10 @@ import ReactMarkdown from "react-markdown"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
-import Conatiner from "@material-ui/core/Container"
+import Container from "@material-ui/core/Container"
 
 //import custom components
 import Layout from "../components/layout"
-import Container from "@material-ui/core/Container"
 
 export const data = graphql`
   query($slug: String!) {
@@ -55,8 +54,11 @@ const useStyles = makeStyles(theme => ({
       // marginBottom: "1rem"
     }
   },
-  test: {
+  headingTypography: {
     textAlign: "center"
+  },
+  listItem: {
+    listStyleType: "none"
   }
 }))
 function ProjectPage({ data }) {
@@ -86,7 +88,7 @@ function ProjectPage({ data }) {
                   <Typography
                     color="secondary"
                     variant={`h${props.level}`}
-                    className={classes.test}
+                    className={classes.headingTypography}
                   >
                     {props.children}
                   </Typography>
@@ -100,7 +102,10 @@ function ProjectPage({ data }) {
                     title={props.alt}
                   />
                   // </Grid>
-                )
+                ),
+                listItem: props => {
+                  return <li className={classes.listItem}>{props.children}</li>
+                }
               }}
             />
           </Grid>
