@@ -84,7 +84,7 @@ function ContentCard(props) {
         className={classes.mediaSection}
       >
         <span className={classes.backdrop}></span>
-        <Typography color="secondary" className={classes.title} variant="h4">
+        <Typography color="textPrimary" className={classes.title} variant="h4">
           {props.title}
         </Typography>
         <Img fluid={props.imageSource} alt={props.alt} title={props.title} />

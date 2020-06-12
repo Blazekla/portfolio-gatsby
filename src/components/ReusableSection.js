@@ -47,7 +47,7 @@ function ReusableSection(props) {
 
   return (
     <div ref={revealContainer} id={props.id} className={classes.root}>
-      <Typography variant="h3" color="secondary" className={classes.title}>
+      <Typography variant="h2" color="secondary" className={classes.title}>
         {props.title}
       </Typography>
       {props.children}
