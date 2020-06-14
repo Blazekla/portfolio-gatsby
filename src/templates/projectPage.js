@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container"
 
 //import custom components
 import Layout from "../components/layout"
+import Helmet from "../components/subcomponents/Helmet"
 
 export const data = graphql`
   query($slug: String!) {
@@ -65,6 +66,7 @@ function ProjectPage({ data }) {
   const classes = useStyles()
   return (
     <Layout>
+      <Helmet title={data.strapiProjects.Title} />
       <Container maxWidth="lg">
         <Grid
           container
@@ -77,9 +79,7 @@ function ProjectPage({ data }) {
               {data.strapiProjects.Title} Project Case
             </Typography>
           </Grid>
-          <Grid
-          // item xs={12} sm={6} md={4}
-          >
+          <Grid>
             <ReactMarkdown
               source={data.strapiProjects.Description}
               className={classes.reactMarkdown}
@@ -94,14 +94,12 @@ function ProjectPage({ data }) {
                   </Typography>
                 ),
                 image: props => (
-                  // <Grid item xs={12} sm={6} md={4}>
                   <img
                     src={props.src}
                     alt={props.alt}
                     style={{ maxWidth: "50vw" }}
                     title={props.alt}
                   />
-                  // </Grid>
                 ),
                 listItem: props => {
                   return <li className={classes.listItem}>{props.children}</li>
