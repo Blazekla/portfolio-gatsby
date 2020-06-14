@@ -35,7 +35,6 @@ function Projects() {
           Title
           Github
           ExternalLink
-          Src
           ImgAlt
           Description
           Tech
