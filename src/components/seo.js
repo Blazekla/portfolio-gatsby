@@ -1,10 +1,3 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
@@ -13,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import config from "../config/index"
 
 function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+  const { site, image } = useStaticQuery(
     graphql`
       query {
         site {
@@ -21,6 +14,14 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
+          }
+        }
+        image: file(relativePath: { eq: "HomepageOG.png" }) {
+          childImageSharp {
+            fluid {
+              src
+            }
           }
         }
       }
@@ -36,6 +37,7 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[{ rel: `canonical`, href: `${site.siteMetadata.siteUrl}` }]}
       meta={[
         {
           name: `description`,
@@ -58,12 +60,44 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:url`,
+          content: site.siteMetadata.siteUrl,
+        },
+        {
+          property: `og:site_name`,
+          content: title,
+        },
+        {
+          property: `og:image`,
+          content: `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}`,
+        },
+        {
+          property: `og:image:type`,
+          content: `image/png`,
+        },
+        {
+          property: `og:locale`,
+          content: config.siteLanguage,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:url`,
+          content: site.siteMetadata.siteUrl,
         },
         {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
+        },
+        {
+          name: `twitter:site`,
+          content: site.siteMetadata.siteUrl,
+        },
+        {
+          name: `twitter:image`,
+          content: `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}`,
         },
         {
           name: `twitter:title`,
@@ -73,7 +107,16 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        // .concat(
+        //   keywords.length > 0
+        //     ? {
+        //         name: `keywords`,
+        //         content: keywords.join(`, `),
+        //       }
+        //     : []
+        // )
+        .concat(meta)}
     />
   )
 }
@@ -82,12 +125,14 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  // keywords: [],
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
+  // keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
 }
 

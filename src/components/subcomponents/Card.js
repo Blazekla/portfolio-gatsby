@@ -89,11 +89,8 @@ function ContentCard(props) {
         </Typography>
         <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
       </CardActionArea>
-      {/* //// */}
+
       <CardContent className={classes.cardContent}>
-        {/* <Typography color="secondary" style={{ marginBottom: "1rem" }}>
-          {props.title}
-        </Typography> */}
         <Typography
           component={Link}
           to={`/projects/${url}`}
@@ -103,7 +100,7 @@ function ContentCard(props) {
           {props.desc}
         </Typography>
       </CardContent>
-      {/* //// */}
+
       <CardActions className={classes.cardAction}>
         <Button size="small" color="primary">
           <ButtonLink
