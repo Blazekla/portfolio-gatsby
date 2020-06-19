@@ -18,18 +18,21 @@ const useStyles = makeStyles(theme => ({
     //
   },
   outerGrid: {
-    margin: "0px auto 100px"
+    margin: "0px auto 100px",
   },
   singleProjectGrid: {
-    padding: "4px"
-  }
+    padding: "4px",
+  },
 }))
 
 function Projects() {
   //Gatsby Image & Data query//
   const data = useStaticQuery(graphql`
     query {
-      projects: allStrapiProjects(sort: { fields: Order, order: ASC }) {
+      projects: allStrapiProjects(
+        sort: { fields: Order, order: ASC }
+        filter: { Production: { eq: true } }
+      ) {
         nodes {
           Order
           Title
