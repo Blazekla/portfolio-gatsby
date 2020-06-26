@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/subcomponents/Helmet"
+import SEO from "../components/seo"
 import { CSSTransition } from "react-transition-group"
-import "../styles/projects.css"
 
 //Import MaterialUI Components
 import Grid from "@material-ui/core/Grid"
@@ -30,7 +29,7 @@ const NotFoundPage = () => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 3000)
+    const timeout = setTimeout(() => setIsMounted(true), 2000)
     return () => clearTimeout(timeout)
   }, [])
 
