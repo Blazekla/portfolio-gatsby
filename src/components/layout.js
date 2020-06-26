@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
 
 // Import MaterialUI components
 import {
@@ -22,7 +21,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#333",
     display: "flex",
     flexDirection: "column",
-    // minHeight: "100vh",
   },
   innerContainer: {
     minHeight: "100vh",
@@ -33,15 +31,6 @@ let theming = createMuiTheme(theme)
 theming = responsiveFontSizes(theming)
 
 const Layout = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
   const classes = useStyles()
   return (
     <>

@@ -31,15 +31,11 @@ const useStyles = makeStyles(theme => ({
     height: "auto",
     display: "flex",
     flexDirection: "column",
-    width: "100%"
-    // position: "fixed",
-    // left: "0px"
-    // bottom: "0px",
-    // height: "30px"
+    width: "100%",
   },
   textStyle: {
-    color: theme.palette.primary.contrastText
-  }
+    color: theme.palette.primary.contrastText,
+  },
 }))
 
 function Footer() {

@@ -28,7 +28,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  console.log("entries here: ", res.data.allStrapiProjects.nodes)
   res.data.allStrapiProjects.nodes.forEach(entry => {
     createPage({
       path: `projects/${entry.Slug}`,
