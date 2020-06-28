@@ -1,7 +1,9 @@
 const theme = {
   palette: {
-    primary: { main: "#283c59", contrastText: "#ccd6f6" },
-    secondary: { main: "#64ffda", contrastText: "#000000" },
+    primary: { main: "#002333", contrastText: "#ccd6f6" },
+    secondary: { main: "#00ff84", contrastText: "#000000" },
+    // primary: { main: "#283c59", contrastText: "#ccd6f6" },
+    // secondary: { main: "#64ffda", contrastText: "#000000" },
     background: {
       paper: "#546686",
       default: "#333",
