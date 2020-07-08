@@ -10,7 +10,7 @@ import {
   CardContent,
   CardActions,
   Button,
-  Typography
+  Typography,
 } from "@material-ui/core"
 import ButtonLink from "@material-ui/core/Link"
 
@@ -20,15 +20,16 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       transform: "translateY(-5px)",
       "& $title": {
-        display: "none"
+        display: "block",
       },
       "& $backdrop": {
-        opacity: "0.01"
-      }
-    }
+        // opacity: "0.01",
+        opacity: "0.65",
+      },
+    },
   },
   mediaSection: {
-    position: "relative"
+    position: "relative",
   },
   backdrop: {
     position: "absolute",
@@ -37,21 +38,22 @@ const useStyles = makeStyles(theme => ({
     top: "0",
     bottom: "0",
     backgroundColor: theme.palette.common.black,
-    opacity: "0.65",
+    // opacity: "0.65",
+    opacity: "0.01",
     zIndex: "1",
-    transition: theme.transitions.create("opacity")
+    transition: theme.transitions.create("opacity"),
   },
   cardAction: {
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   cardContent: {
     textAlign: "center",
-    flexGrow: "1"
+    flexGrow: "1",
   },
   link: {
     "&:hover": {
-      color: theme.palette.secondary.main
-    }
+      color: theme.palette.secondary.main,
+    },
   },
   projectLinkText: {
     textDecoration: "none",
@@ -60,16 +62,18 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: "nowrap",
     display: "block",
     "&:hover": {
-      color: theme.palette.secondary.main
-    }
+      color: theme.palette.secondary.main,
+    },
   },
   title: {
     position: "absolute",
+    display: "none",
     top: "50%",
     zIndex: "1",
     textAlign: "center",
-    width: "100%"
-  }
+    width: "100%",
+    transform: "TranslateY(-50%)",
+  },
 }))
 
 function ContentCard(props) {
