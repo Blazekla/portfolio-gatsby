@@ -1,11 +1,12 @@
 const theme = {
   palette: {
     primary: { main: "#002333", contrastText: "#ccd6f6" },
-    secondary: { main: "#00ff84", contrastText: "#000000" },
+    secondary: { main: "#64ffda", contrastText: "#000000" },
+    // secondary: { main: "#00ff84", contrastText: "#000000" },
     // primary: { main: "#283c59", contrastText: "#ccd6f6" },
-    // secondary: { main: "#64ffda", contrastText: "#000000" },
     background: {
-      paper: "#546686",
+      // paper: "#546686",
+      paper: "#002333",
       default: "#333",
     },
     text: {
@@ -53,14 +54,6 @@ const theme = {
       },
     },
   },
-  //Other colors to use #cee1d5, #b5a282, #e0462b
-
-  //     Alternative colors
-  // Rhino	#324763	Primary
-  // Timber Green	#1c3137	Info
-  // Goblin	#449056	Success
-  // Ochre	#c2801e	Warning
-  // Pomegranate	#f44336	Danger
 }
 
 export default theme
