@@ -21,14 +21,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const projectTemplate = path.resolve("./src/templates/projectPage.js")
   const res = await graphql(`
     {
-      allStrapiProjects {
+      allStrapiProjects(filter: { Production: { eq: true } }) {
         nodes {
           Slug
         }
       }
     }
   `)
-
   res.data.allStrapiProjects.nodes.forEach(entry => {
     createPage({
       path: `projects/${entry.Slug}`,
