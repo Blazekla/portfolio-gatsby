@@ -37,33 +37,32 @@ export const data = graphql`
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: "5rem",
-    paddingBottom: "5rem",
+    paddingBottom: "5rem"
   },
   title: {
     textAlign: "center",
-    paddingBottom: "5rem",
+    paddingBottom: "5rem"
   },
   reactMarkdown: {
     color: theme.palette.primary.contrastText,
-
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     "& p": {
       // marginBottom: "1rem"
-    },
+    }
   },
   headingTypography: {
     marginBottom: "4rem",
     marginTop: "4rem",
-    textAlign: "center",
+    textAlign: "center"
   },
   listItem: {
-    listStyleType: "none",
+    listStyleType: "none"
   },
   gridMainImage: {
-    width: "inherit",
-  },
+    width: "inherit"
+  }
 }))
 function ProjectPage({ data }) {
   const classes = useStyles()
@@ -85,10 +84,10 @@ function ProjectPage({ data }) {
           enter: "fadeup-enter",
           enterActive: "fadeup-enter-active",
           exit: "",
-          exitActive: "",
+          exitActive: ""
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           <Grid
             container
             direction="column"
@@ -97,7 +96,7 @@ function ProjectPage({ data }) {
           >
             <Grid item>
               <Typography variant="h2" component="h1" className={classes.title}>
-                {data.strapiProjects.Title} Project Case
+                {data.strapiProjects.Title} Case Study
               </Typography>
             </Grid>
             <Grid
@@ -114,7 +113,7 @@ function ProjectPage({ data }) {
                 title="test image title"
               />
             </Grid>
-            <Grid>
+            <Grid item>
               <ReactMarkdown
                 source={data.strapiProjects.Description}
                 className={classes.reactMarkdown}
@@ -140,7 +139,7 @@ function ProjectPage({ data }) {
                     return (
                       <li className={classes.listItem}>{props.children}</li>
                     )
-                  },
+                  }
                 }}
               />
             </Grid>
