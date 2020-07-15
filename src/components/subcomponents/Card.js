@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
         display: "block"
       },
       "& $backdrop": {
-        // opacity: "0.01",
         opacity: "0.65"
       }
     }
@@ -38,7 +37,6 @@ const useStyles = makeStyles(theme => ({
     top: "0",
     bottom: "0",
     backgroundColor: theme.palette.common.black,
-    // opacity: "0.65",
     opacity: "0.01",
     zIndex: "1",
     transition: theme.transitions.create("opacity")
@@ -94,7 +92,6 @@ function ContentCard(props) {
           {props.title}
         </Typography>
         <Img
-          // fluid={props.imageSource}
           sizes={{ ...imageSource, aspectRatio: 16 / 9 }}
           alt={props.alt}
           title={props.title}

@@ -47,10 +47,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    "& p": {
-      // marginBottom: "1rem"
-    }
+    alignItems: "center"
   },
   headingTypography: {
     marginBottom: "4rem",
