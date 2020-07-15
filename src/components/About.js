@@ -20,7 +20,9 @@ import ReusableContainer from "./ReusableSection"
 
 const useStyle = makeStyles(theme => ({
   textStyle: {
-    color: theme.palette.primary.contrastText
+    // color: theme.palette.primary.contrastText
+    color: theme.palette.text.primary,
+    textAlign: "start"
   },
   listItem: {
     listStyleType: "none"
@@ -55,6 +57,9 @@ function About() {
         source={data.strapiAboutSection.Description}
         className={classes.textStyle}
         renderers={{
+          list: props => {
+            return <ul style={{ textAlign: "center" }}>{props.children}</ul>
+          },
           listItem: props => {
             return <li className={classes.listItem}>{props.children}</li>
           }
