@@ -10,7 +10,7 @@ import {
   CardContent,
   CardActions,
   Button,
-  Typography,
+  Typography
 } from "@material-ui/core"
 import ButtonLink from "@material-ui/core/Link"
 
@@ -20,16 +20,15 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       transform: "translateY(-5px)",
       "& $title": {
-        display: "block",
+        display: "block"
       },
       "& $backdrop": {
-        // opacity: "0.01",
-        opacity: "0.65",
-      },
-    },
+        opacity: "0.65"
+      }
+    }
   },
   mediaSection: {
-    position: "relative",
+    position: "relative"
   },
   backdrop: {
     position: "absolute",
@@ -38,22 +37,22 @@ const useStyles = makeStyles(theme => ({
     top: "0",
     bottom: "0",
     backgroundColor: theme.palette.common.black,
-    // opacity: "0.65",
     opacity: "0.01",
     zIndex: "1",
-    transition: theme.transitions.create("opacity"),
+    transition: theme.transitions.create("opacity")
   },
   cardAction: {
-    justifyContent: "space-between",
+    justifyContent: props =>
+      props.code === "#" || props.code === null ? "flex-end" : "space-between"
   },
   cardContent: {
     textAlign: "center",
-    flexGrow: "1",
+    flexGrow: "1"
   },
   link: {
     "&:hover": {
-      color: theme.palette.secondary.main,
-    },
+      color: theme.palette.secondary.main
+    }
   },
   projectLinkText: {
     textDecoration: "none",
@@ -62,8 +61,8 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: "nowrap",
     display: "block",
     "&:hover": {
-      color: theme.palette.secondary.main,
-    },
+      color: theme.palette.secondary.main
+    }
   },
   title: {
     position: "absolute",
@@ -72,13 +71,14 @@ const useStyles = makeStyles(theme => ({
     zIndex: "1",
     textAlign: "center",
     width: "100%",
-    transform: "TranslateY(-50%)",
-  },
+    transform: "TranslateY(-50%)"
+  }
 }))
 
 function ContentCard(props) {
-  const classes = useStyles()
+  const classes = useStyles(props)
   const url = props.link
+  const { imageSource } = props
   return (
     <Card className={classes.card}>
       <CardActionArea
@@ -91,7 +91,11 @@ function ContentCard(props) {
         <Typography color="textPrimary" className={classes.title} variant="h4">
           {props.title}
         </Typography>
-        <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
+        <Img
+          sizes={{ ...imageSource, aspectRatio: 16 / 9 }}
+          alt={props.alt}
+          title={props.title}
+        />
       </CardActionArea>
 
       <CardContent className={classes.cardContent}>
@@ -106,27 +110,31 @@ function ContentCard(props) {
       </CardContent>
 
       <CardActions className={classes.cardAction}>
-        <Button size="small" color="primary">
-          <ButtonLink
-            color="textPrimary"
-            href={props.code}
-            target="_blank"
-            className={classes.link}
-            aria-label="View Code"
-            rel="noopener"
-          >
-            View Code
-          </ButtonLink>
-        </Button>
+        {props.code === "#" || props.code === null ? (
+          ""
+        ) : (
+          <Button size="small" color="primary">
+            <ButtonLink
+              color="textPrimary"
+              href={props.code}
+              target="_blank"
+              className={classes.link}
+              aria-label="View Code"
+              rel="noopener"
+            >
+              View Code
+            </ButtonLink>
+          </Button>
+        )}
         <Button size="small" color="primary">
           <ButtonLink
             color="textSecondary"
             href={props.external}
             target="_blank"
-            aria-label="Live Demo"
+            aria-label="Live Site"
             rel="noopener"
           >
-            Live Demo
+            Live Site
           </ButtonLink>
         </Button>
       </CardActions>

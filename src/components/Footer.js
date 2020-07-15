@@ -26,16 +26,16 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: "#020c1b",
+    backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(6),
     height: "auto",
     display: "flex",
     flexDirection: "column",
-    width: "100%",
+    width: "100%"
   },
   textStyle: {
-    color: theme.palette.primary.contrastText,
-  },
+    color: theme.palette.primary.contrastText
+  }
 }))
 
 function Footer() {
