@@ -80,6 +80,7 @@ const useStyles = makeStyles(theme => ({
 function ContentCard(props) {
   const classes = useStyles(props)
   const url = props.link
+  const { imageSource } = props
   return (
     <Card className={classes.card}>
       <CardActionArea
@@ -92,7 +93,12 @@ function ContentCard(props) {
         <Typography color="textPrimary" className={classes.title} variant="h4">
           {props.title}
         </Typography>
-        <Img fluid={props.imageSource} alt={props.alt} title={props.title} />
+        <Img
+          // fluid={props.imageSource}
+          sizes={{ ...imageSource, aspectRatio: 16 / 9 }}
+          alt={props.alt}
+          title={props.title}
+        />
       </CardActionArea>
 
       <CardContent className={classes.cardContent}>
