@@ -20,13 +20,12 @@ import ReusableContainer from "./ReusableSection"
 
 const useStyle = makeStyles(theme => ({
   textStyle: {
-    // color: theme.palette.primary.contrastText
     color: theme.palette.text.primary,
-    textAlign: "start"
+    textAlign: "start",
   },
   listItem: {
-    listStyleType: "none"
-  }
+    listStyleType: "none",
+  },
 }))
 
 function About() {
@@ -58,11 +57,17 @@ function About() {
         className={classes.textStyle}
         renderers={{
           list: props => {
-            return <ul style={{ textAlign: "center" }}>{props.children}</ul>
+            return (
+              <ul
+                style={{ textAlign: "center", paddingInlineStart: "inherit" }}
+              >
+                {props.children}
+              </ul>
+            )
           },
           listItem: props => {
             return <li className={classes.listItem}>{props.children}</li>
-          }
+          },
         }}
       />
     </ReusableContainer>
