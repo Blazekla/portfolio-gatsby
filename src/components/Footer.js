@@ -5,6 +5,9 @@ import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
 import { makeStyles } from "@material-ui/core/styles"
 
+//Import customer components
+import SocialMedia from "./subcomponents/SocialMedia"
+
 function Copyright() {
   const dede = useStyles()
   return (
@@ -30,12 +33,16 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(6),
     height: "auto",
     display: "flex",
+    justifyContent: "space-between",
     flexDirection: "column",
-    width: "100%"
+    width: "100%",
   },
   textStyle: {
-    color: theme.palette.primary.contrastText
-  }
+    color: theme.palette.primary.contrastText,
+  },
+  socialMedia: {
+    marginBottom: "1rem",
+  },
 }))
 
 function Footer() {
@@ -43,6 +50,7 @@ function Footer() {
   return (
     <React.Fragment>
       <footer id="footer" className={classes.footer}>
+        <SocialMedia className={classes.socialMedia} />
         <Typography
           variant="subtitle1"
           align="center"
