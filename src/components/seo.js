@@ -4,9 +4,10 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 import config from "../config/index"
+import SEOImage from "../images/HomepageOG.png"
 
 function SEO({ description, lang, meta, title }) {
-  const { site, image } = useStaticQuery(
+  const { site } = useStaticQuery(
     graphql`
       query {
         site {
@@ -15,13 +16,6 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             siteUrl
-          }
-        }
-        image: file(relativePath: { eq: "HomepageOG.png" }) {
-          childImageSharp {
-            fluid {
-              src
-            }
           }
         }
       }
@@ -69,7 +63,8 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}`,
+          // content: `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}`,
+          content: `${site.siteMetadata.siteUrl}${SEOImage}`,
         },
         {
           property: `og:image:type`,
@@ -97,7 +92,8 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}`,
+          // content: `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}`,
+          content: `${site.siteMetadata.siteUrl}${SEOImage}`,
         },
         {
           name: `twitter:title`,
