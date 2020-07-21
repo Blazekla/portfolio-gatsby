@@ -70,7 +70,12 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`nav-links`, `social-medias`, `projects`],
+        contentTypes: [
+          `nav-links`,
+          `social-medias`,
+          `projects`,
+          `technologies`,
+        ],
         //If using single types place them in this array.
         singleTypes: [
           `hero-section`,
