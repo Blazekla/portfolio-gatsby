@@ -6,19 +6,19 @@ module.exports = {
     title: config.siteTitle,
     description: config.siteDescription,
     author: config.name,
-    siteUrl: config.siteUrl
+    siteUrl: config.siteUrl,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`
-      }
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`
+    //   }
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -30,8 +30,8 @@ module.exports = {
         background_color: `#002333`,
         theme_color: `#002333`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png` // This path is relative to the root of the site.
-      }
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
     },
     `gatsby-plugin-material-ui`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -43,7 +43,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          config.googleAnalyticsID // Google Analytics / GA
+          config.googleAnalyticsID, // Google Analytics / GA
           // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
           // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
@@ -57,13 +57,13 @@ module.exports = {
         // This object is used for configuration specific to this plugin
         pluginConfig: {
           // Puts tracking script in the head instead of the body
-          head: true
+          head: true,
           // Setting this parameter is also optional
           // respectDNT: true,
           // Avoids sending pageview hits from custom paths
           // exclude: ["/preview/**", "/do-not-track/me/too/"],
-        }
-      }
+        },
+      },
     },
     {
       resolve: `gatsby-source-strapi`,
@@ -76,14 +76,14 @@ module.exports = {
           `hero-section`,
           `about-section`,
           `contact-section`,
-          `footer-section`
+          `footer-section`,
         ],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
         loginData: {
           identifier: process.env.STRAPI_LOGIN_IDENTIFIER,
-          password: process.env.STRAPI_LOGIN_PASSWORD
-        }
-      }
-    }
-  ]
+          password: process.env.STRAPI_LOGIN_PASSWORD,
+        },
+      },
+    },
+  ],
 }
