@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
+import Button from "@material-ui/core/Button"
 
 //import custom components
 import Layout from "../components/layout"
@@ -37,32 +38,36 @@ export const data = graphql`
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: "5rem",
-    paddingBottom: "5rem"
+    paddingBottom: "5rem",
   },
   title: {
     textAlign: "center",
-    paddingBottom: "5rem"
+    paddingBottom: "5rem",
   },
   reactMarkdown: {
     color: theme.palette.primary.contrastText,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   headingTypography: {
     marginBottom: "4rem",
     marginTop: "4rem",
-    textAlign: "center"
+    textAlign: "center",
   },
   listItem: {
-    listStyleType: "none"
+    listStyleType: "none",
   },
   gridMainImage: {
-    width: "inherit"
-  }
+    width: "inherit",
+  },
+  secondaryButton: {
+    backgroundColor: theme.palette.secondary.main,
+  },
 }))
 function ProjectPage({ data }) {
   const classes = useStyles()
+
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -71,79 +76,111 @@ function ProjectPage({ data }) {
   }, [])
 
   return (
-    <Layout>
-      <SEO title={data.strapiProjects.Title} />
-      <CSSTransition
-        in={isMounted}
-        timeout={500}
-        mountOnEnter
-        classNames={{
-          enter: "fadeup-enter",
-          enterActive: "fadeup-enter-active",
-          exit: "",
-          exitActive: ""
-        }}
-      >
-        <Container maxWidth="md">
-          <Grid
-            container
-            direction="column"
-            alignItems="center"
-            className={classes.root}
-          >
-            <Grid item>
-              <Typography variant="h2" component="h1" className={classes.title}>
-                {data.strapiProjects.Title} Case Study
-              </Typography>
-            </Grid>
+    <>
+      <Layout>
+        <SEO title={data.strapiProjects.Title} />
+        <CSSTransition
+          in={isMounted}
+          timeout={500}
+          mountOnEnter
+          classNames={{
+            enter: "fadeup-enter",
+            enterActive: "fadeup-enter-active",
+            exit: "",
+            exitActive: "",
+          }}
+        >
+          <Container maxWidth="md">
             <Grid
-              item
-              xs={12}
-              sm={12}
-              md={10}
-              lg={10}
-              className={classes.gridMainImage}
+              container
+              direction="column"
+              alignItems="center"
+              className={classes.root}
             >
-              <Img
-                fluid={data.strapiProjects.MainImage.childImageSharp.fluid}
-                alt="test image"
-                title="test image title"
-              />
-            </Grid>
-            <Grid item>
-              <ReactMarkdown
-                source={data.strapiProjects.Description}
-                className={classes.reactMarkdown}
-                renderers={{
-                  heading: props => (
-                    <Typography
-                      color="secondary"
-                      variant={`h${props.level}`}
-                      className={classes.headingTypography}
+              <Grid item>
+                <Typography
+                  variant="h2"
+                  component="h1"
+                  className={classes.title}
+                >
+                  {data.strapiProjects.Title} Case Study
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={10}
+                lg={10}
+                className={classes.gridMainImage}
+              >
+                <Img
+                  fluid={data.strapiProjects.MainImage.childImageSharp.fluid}
+                  alt="test image"
+                  title="test image title"
+                />
+              </Grid>
+              <Grid container justify="space-around" item>
+                {data.strapiProjects.Github === "#" ||
+                data.strapiProjects.Github === null ? (
+                  ""
+                ) : (
+                  <Grid item>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      href={data.strapiProjects.Github}
                     >
-                      {props.children}
-                    </Typography>
-                  ),
-                  image: props => (
-                    <img
-                      src={props.src}
-                      alt={props.alt}
-                      style={{ maxWidth: "50vw" }}
-                      title={props.alt}
-                    />
-                  ),
-                  listItem: props => {
-                    return (
-                      <li className={classes.listItem}>{props.children}</li>
-                    )
-                  }
-                }}
-              />
+                      View Code
+                    </Button>
+                  </Grid>
+                )}
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    // className={classes.secondaryButton}
+                    href={data.strapiProjects.ExternalLink}
+                  >
+                    <Typography color="primary">Live Site</Typography>
+                  </Button>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <ReactMarkdown
+                  source={data.strapiProjects.Description}
+                  className={classes.reactMarkdown}
+                  renderers={{
+                    heading: props => (
+                      <Typography
+                        color="secondary"
+                        variant={`h${props.level}`}
+                        className={classes.headingTypography}
+                      >
+                        {props.children}
+                      </Typography>
+                    ),
+                    image: props => (
+                      <img
+                        src={props.src}
+                        alt={props.alt}
+                        style={{ maxWidth: "50vw" }}
+                        title={props.alt}
+                      />
+                    ),
+                    listItem: props => {
+                      return (
+                        <li className={classes.listItem}>{props.children}</li>
+                      )
+                    },
+                  }}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
-      </CSSTransition>
-    </Layout>
+          </Container>
+        </CSSTransition>
+      </Layout>
+    </>
   )
 }
 
