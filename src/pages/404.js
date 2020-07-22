@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       transform: "translateY(-3px)",
     },
-    backgroundColor: theme.palette.secondary.main,
   },
 }))
 
@@ -37,42 +36,40 @@ const NotFoundPage = () => {
   }, [])
 
   return (
-    <>
-      <Layout>
-        <SEO title="404: Not found" />
-        <CSSTransition
-          in={isMounted}
-          timeout={500}
-          mountOnEnter
-          classNames={{
-            enter: "fadeup-enter",
-            enterActive: "fadeup-enter-active",
-            exit: "",
-            exitActive: "",
-          }}
-        >
-          <Grid container direction="column" className={classes.gridContainer}>
-            <Grid item>
-              <h1>PAGE NOT FOUND</h1>
-            </Grid>
-            <Grid item>
-              <p>You just hit a route that doesn&#39;t exist.</p>
-            </Grid>
-            <Grid item>
-              <Button
-                component={Link}
-                to="/"
-                variant="contained"
-                // color="primary"
-                className={classes.button}
-              >
-                Go Home
-              </Button>
-            </Grid>
+    <Layout>
+      <SEO title="404: Not found" />
+      <CSSTransition
+        in={isMounted}
+        timeout={500}
+        mountOnEnter
+        classNames={{
+          enter: "fadeup-enter",
+          enterActive: "fadeup-enter-active",
+          exit: "",
+          exitActive: "",
+        }}
+      >
+        <Grid container direction="column" className={classes.gridContainer}>
+          <Grid item>
+            <h1>PAGE NOT FOUND</h1>
           </Grid>
-        </CSSTransition>
-      </Layout>
-    </>
+          <Grid item>
+            <p>You just hit a route that doesn&#39;t exist.</p>
+          </Grid>
+          <Grid item>
+            <Button
+              component={Link}
+              to="/"
+              variant="contained"
+              color="primary"
+              className={classes.button}
+            >
+              Go Home
+            </Button>
+          </Grid>
+        </Grid>
+      </CSSTransition>
+    </Layout>
   )
 }
 

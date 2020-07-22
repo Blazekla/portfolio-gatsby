@@ -46,22 +46,7 @@ function About() {
       <ReactMarkDown
         source={data.strapiAboutSection.Description}
         className={classes.textStyle}
-        renderers={
-          {
-            // list: props => {
-            //   return (
-            //     <ul
-            //       style={{ textAlign: "center", paddingInlineStart: "inherit" }}
-            //     >
-            //       {props.children}
-            //     </ul>
-            //   )
-            // },
-            // listItem: props => {
-            //   return <li className={classes.listItem}>{props.children}</li>
-            // },
-          }
-        }
+        renderers={{}}
       />
       <Grid container justify="space-around">
         {data.strapiAboutSection.technologies.map((tech, id) => (

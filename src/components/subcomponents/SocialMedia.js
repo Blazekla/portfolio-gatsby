@@ -13,17 +13,17 @@ function SocialMedia(props) {
         target="_blank"
         aria-label="View Twitter Account"
         rel="noopener"
-        href="https://github.com/Blazekla"
+        href="https://www.linkedin.com/in/luiscristo1/"
       >
-        <GitHubIcon color="secondary" />
+        <LinkedInIcon color="secondary" />
       </IconButton>
       <IconButton
         target="_blank"
         aria-label="View Twitter Account"
         rel="noopener"
-        href="https://www.linkedin.com/in/luiscristo1/"
+        href="https://github.com/Blazekla"
       >
-        <LinkedInIcon color="secondary" />
+        <GitHubIcon color="secondary" />
       </IconButton>
     </Grid>
   )
