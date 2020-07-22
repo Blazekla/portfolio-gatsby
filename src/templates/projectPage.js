@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
+import Button from "@material-ui/core/Button"
 
 //import custom components
 import Layout from "../components/layout"
@@ -37,32 +38,42 @@ export const data = graphql`
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: "5rem",
-    paddingBottom: "5rem"
+    paddingBottom: "5rem",
   },
   title: {
     textAlign: "center",
-    paddingBottom: "5rem"
+    paddingBottom: "5rem",
+  },
+  buttonContainer: {
+    marginTop: "2rem",
+  },
+  liveSite: {
+    "&:hover": {
+      color: theme.palette.secondary.contrastText,
+      backgroundColor: theme.palette.secondary.dark,
+    },
   },
   reactMarkdown: {
     color: theme.palette.primary.contrastText,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   headingTypography: {
     marginBottom: "4rem",
     marginTop: "4rem",
-    textAlign: "center"
+    textAlign: "center",
   },
   listItem: {
-    listStyleType: "none"
+    listStyleType: "none",
   },
   gridMainImage: {
-    width: "inherit"
-  }
+    width: "inherit",
+  },
 }))
 function ProjectPage({ data }) {
   const classes = useStyles()
+
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -81,7 +92,7 @@ function ProjectPage({ data }) {
           enter: "fadeup-enter",
           enterActive: "fadeup-enter-active",
           exit: "",
-          exitActive: ""
+          exitActive: "",
         }}
       >
         <Container maxWidth="md">
@@ -106,9 +117,44 @@ function ProjectPage({ data }) {
             >
               <Img
                 fluid={data.strapiProjects.MainImage.childImageSharp.fluid}
-                alt="test image"
-                title="test image title"
+                alt={data.strapiProjects.ImgAlt}
+                title={data.strapiProjects.Title}
               />
+            </Grid>
+            <Grid
+              container
+              justify="space-between"
+              item
+              xs={12}
+              sm={12}
+              md={10}
+              lg={10}
+              className={classes.buttonContainer}
+            >
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  href={data.strapiProjects.ExternalLink}
+                  className={classes.liveSite}
+                >
+                  <Typography>Live Site</Typography>
+                </Button>
+              </Grid>
+              {data.strapiProjects.Github === "#" ||
+              data.strapiProjects.Github === null ? (
+                ""
+              ) : (
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    href={data.strapiProjects.Github}
+                  >
+                    View Code
+                  </Button>
+                </Grid>
+              )}
             </Grid>
             <Grid item>
               <ReactMarkdown
@@ -136,7 +182,7 @@ function ProjectPage({ data }) {
                     return (
                       <li className={classes.listItem}>{props.children}</li>
                     )
-                  }
+                  },
                 }}
               />
             </Grid>

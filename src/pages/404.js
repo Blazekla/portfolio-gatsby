@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { CSSTransition } from "react-transition-group"
 
@@ -8,6 +7,9 @@ import { CSSTransition } from "react-transition-group"
 import Grid from "@material-ui/core/Grid"
 import Button from "@material-ui/core/Button"
 import { makeStyles } from "@material-ui/core/styles"
+
+//Import custom components
+import Layout from "../components/layout"
 
 const useStyles = makeStyles(theme => ({
   gridContainer: {
