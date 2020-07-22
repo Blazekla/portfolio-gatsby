@@ -117,8 +117,8 @@ function ProjectPage({ data }) {
             >
               <Img
                 fluid={data.strapiProjects.MainImage.childImageSharp.fluid}
-                alt="test image"
-                title="test image title"
+                alt={data.strapiProjects.ImgAlt}
+                title={data.strapiProjects.Title}
               />
             </Grid>
             <Grid
