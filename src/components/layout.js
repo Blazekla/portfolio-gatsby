@@ -11,7 +11,6 @@ import Footer from "./Footer"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: "#333",
     display: "flex",
     flexDirection: "column",
   },

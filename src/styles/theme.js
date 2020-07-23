@@ -1,21 +1,19 @@
 const theme = {
+  typography: {
+    fontFamily: ["Noto Sans", "sans-serif"].join(","),
+  },
   palette: {
     primary: { main: "#002333", contrastText: "#ffffff" },
     secondary: { main: "#64ffda", contrastText: "#000000" },
-    // secondary: { main: "#00ff84", contrastText: "#000000" },
-    // primary: { main: "#283c59", contrastText: "#ccd6f6" },
     background: {
       // paper: "#546686",
       paper: "#002333",
-      default: "#333"
+      default: "#001823",
     },
     text: {
       primary: "#ffffff",
-      secondary: "#64ffda"
-    }
-    // action: {
-    //   hoverOpacity: 0.4
-    // }
+      secondary: "#64ffda",
+    },
   },
 
   props: {
@@ -28,32 +26,32 @@ const theme = {
       root: {
         "&:hover": {
           backgroundColor: "rgba(0,0,0,0)",
-          color: "#64ffda"
-        }
+          color: "#64ffda",
+        },
       },
       textPrimary: {
         "&:hover": {
-          backgroundColor: "rgba(0, 0, 0, 0)"
-        }
-      }
+          backgroundColor: "rgba(0, 0, 0, 0)",
+        },
+      },
     },
     MuiIconButton: {
       root: {
         "&:hover": {
           backgroundColor: "rgba(0, 0, 0, 0)",
-          color: "#64ffda"
-        }
-      }
+          color: "#64ffda",
+        },
+      },
     },
     MuiListItem: {
       button: {
         "&:hover": {
           backgroundColor: "rgba(0,0,0,0)",
-          color: "#64ffda"
-        }
-      }
-    }
-  }
+          color: "#64ffda",
+        },
+      },
+    },
+  },
 }
 
 export default theme
