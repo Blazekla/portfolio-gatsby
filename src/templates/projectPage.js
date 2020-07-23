@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
     width: "inherit",
   },
 }))
-function ProjectPage({ data }) {
+function ProjectPage({ data, pageContext }) {
   const classes = useStyles()
 
   const [isMounted, setIsMounted] = useState(false)
