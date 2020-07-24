@@ -11,8 +11,6 @@ module.exports = {
   name: "Luis Cristo",
   location: "Houston, TX",
   email: "luiscristodev@gmail.com",
-  github: "https://github.com/blazekla",
-
   animationValue: {
     timeoutDelay: 100,
     transitionDelay: 500,

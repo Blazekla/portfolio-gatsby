@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import ReactMarkdown from "react-markdown"
 import { CSSTransition } from "react-transition-group"
-import Img from "gatsby-image"
 
 //import MaterialUI Components
 import Grid from "@material-ui/core/Grid"
@@ -10,7 +10,6 @@ import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
-
 import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
 import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded"
 
@@ -81,7 +80,6 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   navButtonStyle: {
-    // width: "100%",
     height: "100%",
     textAlign: "center",
   },
