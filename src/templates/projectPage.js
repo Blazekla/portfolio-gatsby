@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import ReactMarkdown from "react-markdown"
 import { CSSTransition } from "react-transition-group"
 import Img from "gatsby-image"
@@ -73,6 +73,7 @@ const useStyles = makeStyles(theme => ({
 }))
 function ProjectPage({ data, pageContext }) {
   const classes = useStyles()
+  const { previous, next } = pageContext
 
   const [isMounted, setIsMounted] = useState(false)
 
@@ -102,6 +103,42 @@ function ProjectPage({ data, pageContext }) {
             alignItems="center"
             className={classes.root}
           >
+            <Grid
+              container
+              justify="space-between"
+              item
+              xs={12}
+              sm={12}
+              md={10}
+              lg={10}
+              className={classes.buttonContainer}
+            >
+              {previous && (
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    component={Link}
+                    to={`/projects/${previous.Slug}`}
+                    className={classes.liveSite}
+                  >
+                    <Typography>Previous</Typography>
+                  </Button>
+                </Grid>
+              )}
+              {next && (
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    component={Link}
+                    to={`/projects/${next.Slug}`}
+                  >
+                    Next
+                  </Button>
+                </Grid>
+              )}
+            </Grid>
             <Grid item>
               <Typography variant="h2" component="h1" className={classes.title}>
                 {data.strapiProjects.Title} Case Study
