@@ -36,9 +36,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const totalCountProjects = res.data.allStrapiProjects.nodes.length
   const projectPage = res.data.allStrapiProjects.nodes
   projectPage.forEach((entry, index) => {
+    const previous = index === 0 ? null : projectPage[index - 1]
     const next =
       index === totalCountProjects - 1 ? null : projectPage[index + 1]
-    const previous = index === 0 ? null : projectPage[index - 1]
 
     createPage({
       path: `projects/${entry.Slug}`,

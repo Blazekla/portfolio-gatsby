@@ -47,6 +47,10 @@ const useStyles = makeStyles(theme => ({
   buttonContainer: {
     marginTop: "2rem",
   },
+  buttonsNavigation: {
+    marginTop: "2rem",
+    justifyContent: props => (props.previous ? "space-between" : "flex-end"),
+  },
   liveSite: {
     "&:hover": {
       color: theme.palette.secondary.contrastText,
@@ -72,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 function ProjectPage({ data, pageContext }) {
-  const classes = useStyles()
+  const classes = useStyles(pageContext)
   const { previous, next } = pageContext
 
   const [isMounted, setIsMounted] = useState(false)
@@ -103,42 +107,6 @@ function ProjectPage({ data, pageContext }) {
             alignItems="center"
             className={classes.root}
           >
-            <Grid
-              container
-              justify="space-between"
-              item
-              xs={12}
-              sm={12}
-              md={10}
-              lg={10}
-              className={classes.buttonContainer}
-            >
-              {previous && (
-                <Grid item>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    component={Link}
-                    to={`/projects/${previous.Slug}`}
-                    className={classes.liveSite}
-                  >
-                    <Typography>Previous</Typography>
-                  </Button>
-                </Grid>
-              )}
-              {next && (
-                <Grid item>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    component={Link}
-                    to={`/projects/${next.Slug}`}
-                  >
-                    Next
-                  </Button>
-                </Grid>
-              )}
-            </Grid>
             <Grid item>
               <Typography variant="h2" component="h1" className={classes.title}>
                 {data.strapiProjects.Title} Case Study
@@ -222,6 +190,41 @@ function ProjectPage({ data, pageContext }) {
                   },
                 }}
               />
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={12}
+              md={10}
+              lg={10}
+              className={classes.buttonsNavigation}
+            >
+              {previous && (
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    component={Link}
+                    to={`/projects/${previous.Slug}`}
+                    className={classes.liveSite}
+                  >
+                    <Typography>Previous</Typography>
+                  </Button>
+                </Grid>
+              )}
+              {next && (
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    component={Link}
+                    to={`/projects/${next.Slug}`}
+                  >
+                    Next
+                  </Button>
+                </Grid>
+              )}
             </Grid>
           </Grid>
         </Container>
