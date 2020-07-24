@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
+import AnchorLink from "@material-ui/core/Link"
 import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
 import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded"
 
@@ -186,6 +187,12 @@ function ProjectPage({ data, pageContext }) {
                     >
                       {props.children}
                     </Typography>
+                  ),
+                  paragraph: props => <Typography>{props.children}</Typography>,
+                  link: props => (
+                    <AnchorLink href={props.href} color="textSecondary">
+                      {props.children}
+                    </AnchorLink>
                   ),
                   image: props => (
                     <img
