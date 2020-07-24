@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import ReactMarkdown from "react-markdown"
 import { CSSTransition } from "react-transition-group"
-import Img from "gatsby-image"
 
 //import MaterialUI Components
 import Grid from "@material-ui/core/Grid"
@@ -10,6 +10,9 @@ import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
+import AnchorLink from "@material-ui/core/Link"
+import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
+import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded"
 
 //import custom components
 import Layout from "../components/layout"
@@ -47,6 +50,10 @@ const useStyles = makeStyles(theme => ({
   buttonContainer: {
     marginTop: "2rem",
   },
+  buttonsNavigation: {
+    marginTop: "2rem",
+    justifyContent: props => (props.previous ? "space-between" : "flex-end"),
+  },
   liveSite: {
     "&:hover": {
       color: theme.palette.secondary.contrastText,
@@ -70,9 +77,20 @@ const useStyles = makeStyles(theme => ({
   gridMainImage: {
     width: "inherit",
   },
+  navButtonBottom: {
+    flexGrow: 1,
+  },
+  navButtonStyle: {
+    height: "100%",
+    textAlign: "center",
+  },
+  nextButtonItem: {
+    textAlign: "end",
+  },
 }))
-function ProjectPage({ data }) {
-  const classes = useStyles()
+function ProjectPage({ data, pageContext }) {
+  const classes = useStyles(pageContext)
+  const { previous, next } = pageContext
 
   const [isMounted, setIsMounted] = useState(false)
 
@@ -151,7 +169,7 @@ function ProjectPage({ data }) {
                     color="primary"
                     href={data.strapiProjects.Github}
                   >
-                    View Code
+                    <Typography>View Code</Typography>
                   </Button>
                 </Grid>
               )}
@@ -170,6 +188,12 @@ function ProjectPage({ data }) {
                       {props.children}
                     </Typography>
                   ),
+                  paragraph: props => <Typography>{props.children}</Typography>,
+                  link: props => (
+                    <AnchorLink href={props.href} color="textSecondary">
+                      {props.children}
+                    </AnchorLink>
+                  ),
                   image: props => (
                     <img
                       src={props.src}
@@ -185,6 +209,51 @@ function ProjectPage({ data }) {
                   },
                 }}
               />
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={12}
+              md={10}
+              lg={10}
+              className={classes.buttonsNavigation}
+            >
+              {previous && (
+                <Grid item xs={6} className={classes.navButtonBottom}>
+                  <Button
+                    component={Link}
+                    to={`/projects/${previous.Slug}`}
+                    className={classes.navButtonStyle}
+                    startIcon={<NavigateBeforeRoundedIcon />}
+                    aria-label="previous project"
+                    color="secondary"
+                  >
+                    <Grid container direction="column">
+                      <Typography>Previous Project</Typography>
+                    </Grid>
+                  </Button>
+                </Grid>
+              )}
+              {next && (
+                <Grid
+                  item
+                  xs={6}
+                  className={`${classes.navButtonBottom} ${classes.nextButtonItem}`}
+                >
+                  <Button
+                    component={Link}
+                    to={`/projects/${next.Slug}`}
+                    endIcon={<NavigateNextRoundedIcon />}
+                    className={classes.navButtonStyle}
+                    aria-label="next project"
+                  >
+                    <Grid container direction="column">
+                      <Typography>Next Project</Typography>
+                    </Grid>
+                  </Button>
+                </Grid>
+              )}
             </Grid>
           </Grid>
         </Container>
