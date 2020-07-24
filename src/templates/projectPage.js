@@ -33,7 +33,7 @@ export const data = graphql`
           }
         }
       }
-      Tech
+      Slug
     }
   }
 `
@@ -101,7 +101,10 @@ function ProjectPage({ data, pageContext }) {
 
   return (
     <Layout>
-      <SEO title={data.strapiProjects.Title} />
+      <SEO
+        title={data.strapiProjects.Title}
+        canonical={`/projects/${data.strapiProjects.Slug}`}
+      />
       <CSSTransition
         in={isMounted}
         timeout={500}
