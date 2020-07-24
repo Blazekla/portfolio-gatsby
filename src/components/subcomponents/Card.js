@@ -5,13 +5,11 @@ import Img from "gatsby-image"
 //Import MaterialUI Components
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
-import {
-  CardActionArea,
-  CardContent,
-  CardActions,
-  Button,
-  Typography,
-} from "@material-ui/core"
+import CardActionArea from "@material-ui/core/CardActionArea"
+import CardContent from "@material-ui/core/CardContent"
+import CardActions from "@material-ui/core/CardActions"
+import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
 import ButtonLink from "@material-ui/core/Link"
 
 const useStyles = makeStyles(theme => ({
@@ -112,31 +110,30 @@ function ContentCard(props) {
       </CardContent>
 
       <CardActions className={classes.cardAction}>
-        <Button size="small" color="primary">
-          <ButtonLink
-            color="textSecondary"
-            href={props.external}
-            target="_blank"
-            aria-label="Live Site"
-            rel="noopener"
-          >
-            Live Site
-          </ButtonLink>
+        <Button
+          component={ButtonLink}
+          size="small"
+          href={props.external}
+          target="_blank"
+          aria-label="Live Site"
+          rel="noopener"
+        >
+          <Typography color="secondary">Live Site</Typography>
         </Button>
         {props.code === "#" || props.code === null ? (
           ""
         ) : (
-          <Button size="small" color="primary">
-            <ButtonLink
-              color="textPrimary"
-              href={props.code}
-              target="_blank"
-              className={classes.link}
-              aria-label="View Code"
-              rel="noopener"
-            >
+          <Button
+            component={ButtonLink}
+            size="small"
+            href={props.code}
+            target="_blank"
+            aria-label="View Code"
+            rel="noopener"
+          >
+            <Typography color="textPrimary" className={classes.link}>
               View Code
-            </ButtonLink>
+            </Typography>
           </Button>
         )}
       </CardActions>

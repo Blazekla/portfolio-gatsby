@@ -6,7 +6,6 @@ const theme = {
     primary: { main: "#002333", contrastText: "#ffffff" },
     secondary: { main: "#64ffda", contrastText: "#000000" },
     background: {
-      // paper: "#546686",
       paper: "#002333",
       default: "#001823",
     },
@@ -16,11 +15,6 @@ const theme = {
     },
   },
 
-  props: {
-    // MuiButtonBase: {
-    //   // disableRipple: true,
-    // },
-  },
   overrides: {
     MuiButton: {
       root: {
