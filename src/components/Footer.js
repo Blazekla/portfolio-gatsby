@@ -9,16 +9,10 @@ import { makeStyles } from "@material-ui/core/styles"
 import SocialMedia from "./subcomponents/SocialMedia"
 
 function Copyright() {
-  const dede = useStyles()
   return (
-    <Typography
-      variant="body2"
-      color="textSecondary"
-      align="center"
-      className={dede.textStyle}
-    >
+    <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://github.com/Blazekla/">
+      <Link color="textSecondary" href="https://github.com/Blazekla/">
         Luis Cristo
       </Link>{" "}
       {new Date().getFullYear()}
@@ -37,9 +31,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     width: "100%",
   },
-  textStyle: {
-    color: theme.palette.primary.contrastText,
-  },
   socialMedia: {
     marginBottom: "1rem",
   },
@@ -54,7 +45,7 @@ function Footer() {
         <Typography
           variant="subtitle1"
           align="center"
-          color="textSecondary"
+          color="textPrimary"
           component="p"
           className={classes.textStyle}
         >
