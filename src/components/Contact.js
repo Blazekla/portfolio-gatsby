@@ -11,8 +11,11 @@ import ReusableContainer from "./ReusableSection"
 
 const useStyles = makeStyles(theme => ({
   textStyle: {
-    color: theme.palette.primary.contrastText,
     marginTop: "20px",
+  },
+  ctaButton: {
+    padding: "20px 28px",
+    marginTop: "30px",
   },
 }))
 
@@ -30,7 +33,7 @@ function Contact() {
 
   return (
     <ReusableContainer id="contact" title={data.strapiContactSection.Title}>
-      <Typography paragraph className={classes.textStyle}>
+      <Typography paragraph color="textPrimary" className={classes.textStyle}>
         {data.strapiContactSection.Description}
       </Typography>
 
@@ -38,10 +41,10 @@ function Contact() {
         variant="contained"
         color="primary"
         href="mailto:luiscristodev@gmail.com"
-        style={{ padding: "20px 28px", marginTop: "30px" }}
+        className={classes.ctaButton}
         aria-label="Send Email"
       >
-        Say Hello
+        <Typography>Say Hello</Typography>
       </Button>
     </ReusableContainer>
   )
