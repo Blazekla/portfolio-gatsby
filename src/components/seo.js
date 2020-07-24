@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import config from "../config/index"
 import SEOImage from "../images/HomepageOG.png"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, canonical }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -23,6 +23,9 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const canonicalLink = canonical
+    ? `${site.siteMetadata.siteUrl}${canonical}`
+    : `${site.siteMetadata.siteUrl}`
 
   return (
     <Helmet
@@ -31,7 +34,7 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={[{ rel: `canonical`, href: `${site.siteMetadata.siteUrl}` }]}
+      link={[{ rel: `canonical`, href: canonicalLink }]}
       meta={[
         {
           name: `description`,
@@ -128,6 +131,7 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   // keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  canonical: PropTypes.string,
 }
 
 export default SEO

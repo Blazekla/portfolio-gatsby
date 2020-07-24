@@ -46,7 +46,9 @@ function About() {
       <ReactMarkDown
         source={data.strapiAboutSection.Description}
         className={classes.textStyle}
-        renderers={{}}
+        renderers={{
+          paragraph: props => <Typography>{props.children}</Typography>,
+        }}
       />
       <Grid container justify="space-around">
         {data.strapiAboutSection.technologies.map((tech, id) => (
