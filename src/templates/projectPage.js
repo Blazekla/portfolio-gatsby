@@ -11,6 +11,9 @@ import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
 
+import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
+import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded"
+
 //import custom components
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -73,6 +76,17 @@ const useStyles = makeStyles(theme => ({
   },
   gridMainImage: {
     width: "inherit",
+  },
+  navButtonBottom: {
+    flexGrow: 1,
+  },
+  navButtonStyle: {
+    // width: "100%",
+    height: "100%",
+    textAlign: "center",
+  },
+  nextButtonItem: {
+    textAlign: "end",
   },
 }))
 function ProjectPage({ data, pageContext }) {
@@ -156,7 +170,7 @@ function ProjectPage({ data, pageContext }) {
                     color="primary"
                     href={data.strapiProjects.Github}
                   >
-                    View Code
+                    <Typography>View Code</Typography>
                   </Button>
                 </Grid>
               )}
@@ -201,27 +215,44 @@ function ProjectPage({ data, pageContext }) {
               className={classes.buttonsNavigation}
             >
               {previous && (
-                <Grid item>
+                <Grid item xs={6} sm={6} className={classes.navButtonBottom}>
                   <Button
-                    variant="contained"
-                    color="secondary"
+                    // color="inherit"
+                    variant="outlined"
                     component={Link}
                     to={`/projects/${previous.Slug}`}
-                    className={classes.liveSite}
+                    // className={classes.liveSite}
+                    className={classes.navButtonStyle}
+                    startIcon={<NavigateBeforeRoundedIcon />}
+                    aria-label="previous project"
                   >
-                    <Typography>Previous</Typography>
+                    <Grid container direction="column">
+                      <Typography>Previous Project</Typography>
+                      {/* <Typography>{previous.Slug}</Typography> */}
+                    </Grid>
                   </Button>
                 </Grid>
               )}
               {next && (
-                <Grid item>
+                <Grid
+                  item
+                  xs={6}
+                  sm={6}
+                  className={`${classes.navButtonBottom} ${classes.nextButtonItem}`}
+                >
                   <Button
-                    variant="contained"
-                    color="primary"
+                    // color="inherit"
                     component={Link}
+                    variant="outlined"
                     to={`/projects/${next.Slug}`}
+                    endIcon={<NavigateNextRoundedIcon />}
+                    className={classes.navButtonStyle}
+                    aria-label="next project"
                   >
-                    Next
+                    <Grid container direction="column">
+                      <Typography>Next Project</Typography>
+                      {/* <Typography>{next.Slug}</Typography> */}
+                    </Grid>
                   </Button>
                 </Grid>
               )}
