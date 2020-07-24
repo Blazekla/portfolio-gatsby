@@ -50,8 +50,8 @@ const useStyles = makeStyles(theme => ({
   buttonContainer: {
     marginTop: "2rem",
   },
-  buttonsNavigation: {
-    marginTop: "2rem",
+  bottomButtonsNavigation: {
+    marginTop: "4rem",
     justifyContent: props => (props.previous ? "space-between" : "flex-end"),
   },
   liveSite: {
@@ -190,7 +190,12 @@ function ProjectPage({ data, pageContext }) {
                   ),
                   paragraph: props => <Typography>{props.children}</Typography>,
                   link: props => (
-                    <AnchorLink href={props.href} color="textSecondary">
+                    <AnchorLink
+                      href={props.href}
+                      aria-label={`${props.children[0].props.children} link`}
+                      rel="noopener"
+                      color="textSecondary"
+                    >
                       {props.children}
                     </AnchorLink>
                   ),
@@ -217,7 +222,7 @@ function ProjectPage({ data, pageContext }) {
               sm={12}
               md={10}
               lg={10}
-              className={classes.buttonsNavigation}
+              className={classes.bottomButtonsNavigation}
             >
               {previous && (
                 <Grid item xs={6} className={classes.navButtonBottom}>
