@@ -215,20 +215,17 @@ function ProjectPage({ data, pageContext }) {
               className={classes.buttonsNavigation}
             >
               {previous && (
-                <Grid item xs={6} sm={6} className={classes.navButtonBottom}>
+                <Grid item xs={6} className={classes.navButtonBottom}>
                   <Button
-                    // color="inherit"
-                    variant="outlined"
                     component={Link}
                     to={`/projects/${previous.Slug}`}
-                    // className={classes.liveSite}
                     className={classes.navButtonStyle}
                     startIcon={<NavigateBeforeRoundedIcon />}
                     aria-label="previous project"
+                    color="secondary"
                   >
                     <Grid container direction="column">
                       <Typography>Previous Project</Typography>
-                      {/* <Typography>{previous.Slug}</Typography> */}
                     </Grid>
                   </Button>
                 </Grid>
@@ -237,13 +234,10 @@ function ProjectPage({ data, pageContext }) {
                 <Grid
                   item
                   xs={6}
-                  sm={6}
                   className={`${classes.navButtonBottom} ${classes.nextButtonItem}`}
                 >
                   <Button
-                    // color="inherit"
                     component={Link}
-                    variant="outlined"
                     to={`/projects/${next.Slug}`}
                     endIcon={<NavigateNextRoundedIcon />}
                     className={classes.navButtonStyle}
@@ -251,7 +245,6 @@ function ProjectPage({ data, pageContext }) {
                   >
                     <Grid container direction="column">
                       <Typography>Next Project</Typography>
-                      {/* <Typography>{next.Slug}</Typography> */}
                     </Grid>
                   </Button>
                 </Grid>
