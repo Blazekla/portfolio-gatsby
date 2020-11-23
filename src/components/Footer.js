@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
   socialMedia: {
     marginBottom: "1rem",
   },
+  textStyle: {
+    marginBottom: "1rem",
+  },
 }))
 
 function Footer() {
