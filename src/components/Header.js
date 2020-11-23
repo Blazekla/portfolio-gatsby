@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   toolbarContainer: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
+    paddingRight: "1rem",
+    paddingLeft: "1rem",
     marginRight: "auto",
     marginLeft: "auto",
     width: "100%",

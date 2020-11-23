@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   listItem: {
     justifyContent: "center",
-    marginBottom: "50px",
+    marginBottom: "3.5rem",
     "&:hover": {
       textAlign: "right",
     },

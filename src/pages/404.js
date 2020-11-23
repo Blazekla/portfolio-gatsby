@@ -13,7 +13,7 @@ import Layout from "../components/layout"
 
 const useStyles = makeStyles(theme => ({
   gridContainer: {
-    paddingTop: "70px",
+    paddingTop: "4.5rem",
     justifyContent: "center",
     alignItems: "center",
     minHeight: "600px",

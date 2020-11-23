@@ -11,14 +11,13 @@ import sr from "../utils/sr"
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: "inherit",
-    // textAlign: "center",
-    marginBottom: "100px",
+    marginBottom: "6.5rem",
     paddingTop: "5.5rem",
     minHeight: "400px",
     scrollMarginTop: "1rem",
   },
   title: {
-    marginBottom: "50px",
+    marginBottom: "4rem",
   },
 }))
 
@@ -35,7 +34,7 @@ function ReusableSection(props) {
       opacity: 0,
       scale: 1,
       easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
-      mobile: true,
+      mobile: false,
       reset: false,
       useDelay: "always",
       viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },

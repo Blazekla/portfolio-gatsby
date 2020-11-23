@@ -14,11 +14,11 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
   },
   textStyle: {
-    marginTop: "20px",
+    marginTop: "2rem",
   },
   ctaButton: {
     padding: "20px 28px",
-    marginTop: "30px",
+    marginTop: "2rem",
   },
 }))
 

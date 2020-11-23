@@ -75,7 +75,7 @@ function HeroUnit() {
                     id === 1
                       ? theme.palette.secondary.main
                       : theme.palette.primary.contrastText,
-                  marginBottom: id === 1 ? "35px" : "20px",
+                  marginBottom: id === 1 ? "2rem" : "1rem",
                 }}
               >
                 {data}
@@ -94,7 +94,7 @@ function HeroUnit() {
                 <div
                   style={{
                     transitionDelay: `${transitionDelay + 300}ms`,
-                    marginTop: "30px",
+                    marginTop: "2rem",
                   }}
                 >
                   <Button
