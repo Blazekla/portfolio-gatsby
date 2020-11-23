@@ -11,15 +11,15 @@ import sr from "../utils/sr"
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: "inherit",
-    textAlign: "center",
+    // textAlign: "center",
     marginBottom: "100px",
     paddingTop: "5.5rem",
     minHeight: "400px",
-    scrollMarginTop: "1rem"
+    scrollMarginTop: "1rem",
   },
   title: {
-    marginBottom: "50px"
-  }
+    marginBottom: "50px",
+  },
 }))
 
 function ReusableSection(props) {
@@ -38,7 +38,7 @@ function ReusableSection(props) {
       mobile: true,
       reset: false,
       useDelay: "always",
-      viewOffset: { top: 0, right: 0, bottom: 250, left: 0 }
+      viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },
     }
     return sr.reveal(revealContainer.current, slideUp)
   }, [])
@@ -58,7 +58,7 @@ function ReusableSection(props) {
 ReusableSection.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default ReusableSection

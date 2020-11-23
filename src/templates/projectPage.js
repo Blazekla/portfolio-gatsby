@@ -87,6 +87,9 @@ const useStyles = makeStyles(theme => ({
   nextButtonItem: {
     textAlign: "end",
   },
+  markdownImage: {
+    maxWidth: "50vw",
+  },
 }))
 function ProjectPage({ data, pageContext }) {
   const classes = useStyles(pageContext)
@@ -206,7 +209,8 @@ function ProjectPage({ data, pageContext }) {
                     <img
                       src={props.src}
                       alt={props.alt}
-                      style={{ maxWidth: "50vw" }}
+                      // style={{ maxWidth: "50vw" }}
+                      className={classes.markdownImage}
                       title={props.alt}
                     />
                   ),

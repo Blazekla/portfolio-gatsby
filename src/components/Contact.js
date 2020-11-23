@@ -44,7 +44,7 @@ function Contact() {
         className={classes.ctaButton}
         aria-label="Send Email"
       >
-        <Typography>Say Hello</Typography>
+        <Typography>Let's work together</Typography>
       </Button>
     </ReusableContainer>
   )
