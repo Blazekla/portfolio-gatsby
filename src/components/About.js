@@ -13,7 +13,8 @@ import ReusableContainer from "./ReusableSection"
 const useStyle = makeStyles(theme => ({
   textStyle: {
     color: theme.palette.text.primary,
-    textAlign: "start",
+    // textAlign: "start",
+    marginBottom: "4rem",
   },
   listItem: {
     listStyleType: "none",
@@ -21,8 +22,10 @@ const useStyle = makeStyles(theme => ({
     border: "2px solid black",
   },
   techItem: {
-    borderBottom: `2px solid ${theme.palette.secondary.main}`,
-    paddingTop: "1rem",
+    padding: "1rem",
+    "& p": {
+      borderBottom: `2px solid ${theme.palette.secondary.main}`,
+    },
   },
 }))
 
@@ -52,8 +55,8 @@ function About() {
       />
       <Grid container justify="space-around">
         {data.strapiAboutSection.technologies.map((tech, id) => (
-          <Grid item key={id}>
-            <Typography variant="h4" component="p" className={classes.techItem}>
+          <Grid item key={id} className={classes.techItem}>
+            <Typography variant="h4" component="p">
               {tech.Name}
             </Typography>
           </Grid>
