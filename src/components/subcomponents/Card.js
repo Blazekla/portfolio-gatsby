@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
@@ -11,6 +11,8 @@ import CardActions from "@material-ui/core/CardActions"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import ButtonLink from "@material-ui/core/Link"
+
+import sr from "../../utils/sr"
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -76,11 +78,31 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function ContentCard(props) {
-  const classes = useStyles(props)
+  const animatedContainer = useRef(null)
+  const classes = useStyles()
   const url = props.link
   const { imageSource } = props
+
+  useEffect(() => {
+    const slideUp = {
+      distance: "20px",
+      origin: "bottom",
+      duration: 1000,
+      delay: 200,
+      rotate: { x: 0, y: 0, z: 0 },
+      opacity: 0,
+      scale: 1,
+      easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
+      mobile: false,
+      reset: false,
+      useDelay: "always",
+      viewOffset: { top: 0, right: 0, bottom: 250, left: 0 },
+    }
+    return sr.reveal(animatedContainer.current, slideUp)
+  }, [])
+
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} ref={animatedContainer}>
       <CardActionArea
         disableRipple={true}
         component={Link}
