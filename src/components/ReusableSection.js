@@ -46,7 +46,13 @@ function ReusableSection(props) {
   const classes = useStyles()
 
   return (
-    <div ref={revealContainer} id={props.id} className={classes.root}>
+    <div
+      ref={revealContainer}
+      id={props.id}
+      className={
+        props.className ? classes.root + " " + props.className : classes.root
+      }
+    >
       <Typography variant="h2" color="secondary" className={classes.title}>
         {props.title}
       </Typography>
@@ -59,6 +65,7 @@ ReusableSection.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
 export default ReusableSection

@@ -51,9 +51,6 @@ function HeroUnit() {
         container
         direction="column"
         justify="center"
-        // style={{
-        //   height: "100vh",
-        // }}
         className={classes.outerContainer}
       >
         <div>
@@ -100,8 +97,6 @@ function HeroUnit() {
                     marginTop: "30px",
                   }}
                 >
-                  {/* div element necessary to apply transition since Button component
-                has existing transition that conflicts */}
                   <Button
                     variant="contained"
                     color="primary"

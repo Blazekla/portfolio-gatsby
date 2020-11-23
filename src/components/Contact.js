@@ -10,6 +10,9 @@ import Button from "@material-ui/core/Button"
 import ReusableContainer from "./ReusableSection"
 
 const useStyles = makeStyles(theme => ({
+  containerAlignment: {
+    textAlign: "center",
+  },
   textStyle: {
     marginTop: "20px",
   },
@@ -32,7 +35,11 @@ function Contact() {
   `)
 
   return (
-    <ReusableContainer id="contact" title={data.strapiContactSection.Title}>
+    <ReusableContainer
+      id="contact"
+      title={data.strapiContactSection.Title}
+      className={classes.containerAlignment}
+    >
       <Typography paragraph color="textPrimary" className={classes.textStyle}>
         {data.strapiContactSection.Description}
       </Typography>
