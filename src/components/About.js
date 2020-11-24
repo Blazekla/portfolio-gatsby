@@ -15,6 +15,15 @@ const useStyle = makeStyles(theme => ({
     color: theme.palette.text.primary,
     // textAlign: "start",
     marginBottom: "4rem",
+    flexBasis: "50%",
+    paddingRight: "1rem",
+    paddingLefth: "1rem",
+  },
+  secondarySection: {
+    flexBasis: "50%",
+    paddingRight: "1rem",
+    paddingLefth: "1rem",
+    backgroundColor: theme.palette.secondary.light,
   },
   listItem: {
     listStyleType: "none",
@@ -46,13 +55,16 @@ function About() {
 
   return (
     <ReusableContainer id="about" title={data.strapiAboutSection.Title}>
-      <ReactMarkDown
-        source={data.strapiAboutSection.Description}
-        className={classes.textStyle}
-        renderers={{
-          paragraph: props => <Typography>{props.children}</Typography>,
-        }}
-      />
+      <Grid container>
+        <ReactMarkDown
+          source={data.strapiAboutSection.Description}
+          className={classes.textStyle}
+          renderers={{
+            paragraph: props => <Typography>{props.children}</Typography>,
+          }}
+        />
+        <div className={classes.secondarySection}></div>
+      </Grid>
       <Grid container justify="space-around">
         {data.strapiAboutSection.technologies.map((tech, id) => (
           <Grid item key={id} className={classes.techItem}>
