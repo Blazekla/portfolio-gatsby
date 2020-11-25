@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react"
+import { CSSTransition } from "react-transition-group"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 //Import MaterialUI Components
-import makeStyles from "@material-ui/core/styles/makeStyles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import ToolBar from "@material-ui/core/Toolbar"
 import IconButton from "@material-ui/core/IconButton"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
-import { CSSTransition } from "react-transition-group"
-import { useTheme } from "@material-ui/core/styles"
+import LightIcon from "@material-ui/icons/Brightness4Rounded"
+import DarkIcon from "@material-ui/icons/Brightness7Rounded"
 
 //Import custom components
 import Drawer from "./subcomponents/Drawer"
@@ -84,7 +85,8 @@ const Header = () => {
   const timeoutValue = pageData.animationValue.timeoutValue
   const transDelay = pageData.animationValue.transitionDelay
   const themeToggle = useTheme()
-  console.log("navba: ", themeToggle)
+  console.log("navbar: ", themeToggle)
+  console.log("navbar: ", themeToggle.palette.type)
   return (
     <React.Fragment>
       <CSSTransition
@@ -122,7 +124,7 @@ const Header = () => {
                 </CSSTransition>
               </div>
 
-              {/* <div className={classes.sectionDesktop}>
+              <div className={classes.sectionDesktop}>
                 {navLinks.allStrapiNavLinks.nodes.map((link, id) => (
                   <CSSTransition
                     key={id}
@@ -147,8 +149,18 @@ const Header = () => {
                     </span>
                   </CSSTransition>
                 ))}
-              </div> */}
-              <button onClick={themeToggle.themeToggle}>Toggle theme!</button>
+                <IconButton
+                  color="inherit"
+                  aira-label="toggle theme color"
+                  onClick={themeToggle.themeToggle}
+                >
+                  {themeToggle.palette.type === "light" ? (
+                    <LightIcon />
+                  ) : (
+                    <DarkIcon />
+                  )}
+                </IconButton>
+              </div>
               <div className={classes.sectionMobile}>
                 <CSSTransition
                   in={isAlive}
