@@ -67,19 +67,25 @@ function HeroUnit() {
                 exitActive: "",
               }}
             >
-              <Typography
-                variant={size[id]}
+              <div
                 style={{
                   transitionDelay: `${transitionDelay + 100 * id}ms`,
-                  color:
-                    id === 1
-                      ? theme.palette.secondary.main
-                      : theme.palette.primary.contrastText,
-                  marginBottom: id === 1 ? "2rem" : "1rem",
                 }}
               >
-                {data}
-              </Typography>
+                <Typography
+                  variant={size[id]}
+                  style={{
+                    color:
+                      id === 1
+                        ? theme.palette.secondary.main
+                        : // : theme.palette.primary.contrastText,
+                          "",
+                    marginBottom: id === 1 ? "2rem" : "1rem",
+                  }}
+                >
+                  {data}
+                </Typography>
+              </div>
             </CSSTransition>
           ))}
 

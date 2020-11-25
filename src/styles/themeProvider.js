@@ -11,27 +11,29 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 // import theme from "./theme"
 import themetoggle from "./themetoggle"
 
-// let theming = createMuiTheme(theme)
-
 const ThemeWrapper = ({ children }) => {
   const [toggle, setToggle] = useState("light")
+
+  const lightTheme = themetoggle.light
+  const darkTheme = themetoggle.dark
+
   function handleClick() {
     if (toggle === "light") {
       return setToggle("dark")
     }
     return setToggle("light")
   }
-  const testtheme = {
-    ...themetoggle,
-    palette: { ...themetoggle.palette, type: toggle },
+
+  const appTheme = {
+    ...(toggle === "light" ? lightTheme : darkTheme),
     themeToggle: () => handleClick(),
   }
-  let theming = createMuiTheme(testtheme)
+
+  let theming = createMuiTheme(appTheme)
   theming = responsiveFontSizes(theming)
 
   return (
     <ThemeProvider theme={theming}>
-      {console.log(testtheme)}
       <CssBaseline />
       {children}
     </ThemeProvider>

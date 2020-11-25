@@ -85,8 +85,6 @@ const Header = () => {
   const timeoutValue = pageData.animationValue.timeoutValue
   const transDelay = pageData.animationValue.transitionDelay
   const themeToggle = useTheme()
-  console.log("navbar: ", themeToggle)
-  console.log("navbar: ", themeToggle.palette.type)
   return (
     <React.Fragment>
       <CSSTransition
