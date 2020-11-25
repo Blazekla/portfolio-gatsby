@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import { CSSTransition } from "react-transition-group"
+import { useTheme } from "@material-ui/core/styles"
 
 //Import custom components
 import Drawer from "./subcomponents/Drawer"
@@ -82,6 +83,8 @@ const Header = () => {
   const classes = useStyles()
   const timeoutValue = pageData.animationValue.timeoutValue
   const transDelay = pageData.animationValue.transitionDelay
+  const themeToggle = useTheme()
+  console.log("navba: ", themeToggle)
   return (
     <React.Fragment>
       <CSSTransition
@@ -119,7 +122,7 @@ const Header = () => {
                 </CSSTransition>
               </div>
 
-              <div className={classes.sectionDesktop}>
+              {/* <div className={classes.sectionDesktop}>
                 {navLinks.allStrapiNavLinks.nodes.map((link, id) => (
                   <CSSTransition
                     key={id}
@@ -144,7 +147,8 @@ const Header = () => {
                     </span>
                   </CSSTransition>
                 ))}
-              </div>
+              </div> */}
+              <button onClick={themeToggle.themeToggle}>Toggle theme!</button>
               <div className={classes.sectionMobile}>
                 <CSSTransition
                   in={isAlive}
